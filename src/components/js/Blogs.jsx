@@ -3,9 +3,7 @@ import "../css/bootstrap.min.css";
 import Bloglist from "./Bloglist";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState(null);
-
-  useEffect(() => {
+  const [blogs] = useState(() => {
     async function fetchData() {
       const res = await fetch("http://localhost:8000/blogs");
       const data = await res.json();
@@ -13,13 +11,17 @@ const Blogs = () => {
     }
 
     const db = fetchData();
-    console.log(db);
-    setBlogs(db);
-  }, []);
+    return db;
+  });
+
+  // useEffect(() => {
+  //   console.log(db);
+  //   setBlogs(db);
+  // }, []);
 
   return (
     <div className="container-fluid col">
-      (blogs && <Bloglist data={blogs} />)
+      (blogs && <Bloglist blogs={blogs} />)
     </div>
   );
 };
