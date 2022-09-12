@@ -1,0 +1,19 @@
+article {
+  position: relative;
+  box-shadow: 0, 0, 3px, 15px, red;
+}
+
+.delete,
+.edit {
+  position: absolute;
+  content: "";
+  top: 10px;
+}
+
+.edit {
+  right: 3.5rem;
+}
+
+.delete {
+  right: 5px;
+}

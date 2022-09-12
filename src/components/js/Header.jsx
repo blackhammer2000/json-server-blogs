@@ -1,26 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../css/bootstrap.min.css";
 
 const Header = () => {
   return (
-    <div className="container row border mt-3">
-      <div className="w-50 text-left">
+    <div className="container row  mt-3 py-0 justify-content-around align-items-center">
+      <div className="w-50 text-left ">
         <h2 className="text-primary font-weight-bold">Blogs</h2>
       </div>
-      <ul className="row list-unstyled w-50 justify-content-end">
-        <li>
-          <button className="btn btn-outline-primary border-0 font-weight-bold">
-            HOME
-          </button>
-        </li>
-        <li>
-          <button className="btn btn-outline-primary border-0 font-weight-bold">
-            BLOGS
-          </button>
-        </li>
+      <ul className="row list-unstyled w-25 justify-content-around mt-3 ">
+        <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="/new">New Blog</CustomLink>
       </ul>
     </div>
   );
 };
+
+function CustomLink({ to, children, ...props }) {
+  return (
+    <li>
+      <Link to={to} {...props}>
+        <h5>{children}</h5>
+      </Link>
+    </li>
+  );
+}
 
 export default Header;

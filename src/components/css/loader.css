@@ -1,0 +1,73 @@
+.loader {
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+}
+
+.spinner {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.loader-text {
+  position: absolute;
+  left: -0.9rem;
+  bottom: -3em;
+  font: 0.8em 600;
+  letter-spacing: 2px;
+  text-align: center;
+  animation: fade-text 2s ease-in-out infinite alternate;
+  transition: animation 2s;
+}
+
+.spinner-section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  mix-blend-mode: overlay;
+}
+
+.spinner-section-green {
+  border-left: 5px solid lightblue;
+  animation: spin 1.5s 0.02s ease-in-out infinite;
+  transition: animation 1.5s;
+}
+.spinner-section-red {
+  border-top: 5px solid lightgreen;
+  animation: spin 1s 0.4s ease-in infinite;
+  transition: animation 1s;
+}
+.spinner-section-blue {
+  border-right: 5px solid lightcoral;
+  animation: spin 1.25s 0.2s ease-out infinite;
+  transition: animation 2s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-text {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+    scale: 0.8;
+  }
+}
