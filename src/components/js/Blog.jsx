@@ -2,11 +2,17 @@ import React from "react";
 import "../css/bootstrap.min.css";
 import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/blog.css";
+import { renderFullBlog } from "../../utilities/renderFullBlog";
 
 const Blog = ({ blog }) => {
   const { id, author, description, title } = blog;
   return (
-    <article className="container-fluid bg-light py-2 col mb-3">
+    <article
+      className="container bg-light py-2 col mb-3"
+      onClick={() => {
+        RenderFullBlog(id);
+      }}
+    >
       <button className="delete btn btn-outline-danger">
         <i className="fa fa-trash"></i>
       </button>

@@ -1,7 +1,7 @@
 import React from "react";
 import Blog from "./Blog";
 
-const Bloglist = ({ blogs }) => {
+const BlogList = ({ blogs }) => {
   return (
     <div className="container-fluid">
       {blogs.map((blog) => {
@@ -11,4 +11,4 @@ const Bloglist = ({ blogs }) => {
   );
 };
 
-export default Bloglist;
+export default BlogList;
