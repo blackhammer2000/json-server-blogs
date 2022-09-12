@@ -1,0 +1,17 @@
+heading {
+  position: relative;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 3;
+}
+
+.one {
+  color: #2196ed;
+}
+.two {
+  color: #ef2163;
+}

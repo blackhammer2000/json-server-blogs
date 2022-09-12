@@ -6,23 +6,26 @@ import "../css/blog.css";
 const Blog = ({ blog }) => {
   const { id, author, description, title } = blog;
   return (
-    <article className="container-fluid border-bottom py-2 col mb-3">
+    <article className="container-fluid bg-light py-2 col mb-3">
       <button className="delete btn btn-outline-danger">
         <i className="fa fa-trash"></i>
       </button>
       <button className="edit btn btn-outline-primary">
         <i className="fa fa-edit"></i>
       </button>
-      <div className="container-fluid">
+      <div className="container-fluid border-bottom pb-2">
         <h3>
           {id}: {title}
         </h3>
       </div>
-      <div className="w-sm-50 w- 75 ml-3">
-        <p>{description}</p>
+      <div className="w-sm-50 w- 75 ml-3 font-italic mt-2">
+        <p>
+          {description.slice(0, Math.round(description.length / 3))}...{" "}
+          <span className="text-info">Read More</span>
+        </p>
       </div>
       <div className="container-fluid">
-        <h6>Written by {author}</h6>
+        <h6 className="font-weight-lighter">Written by {author}</h6>
       </div>
     </article>
   );

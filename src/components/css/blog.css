@@ -1,6 +1,10 @@
 article {
   position: relative;
-  box-shadow: 0, 0, 3px, 15px, red;
+  cursor: pointer;
+}
+
+article:hover {
+  box-shadow: 0 3px 5px #2196ef;
 }
 
 .delete,
