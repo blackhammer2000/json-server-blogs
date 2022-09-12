@@ -4,7 +4,7 @@ import "../css/bootstrap.min.css";
 
 const Header = () => {
   return (
-    <div className="container row  mt-3 py-0 justify-content-around align-items-center">
+    <div className="container row  mt-3 py-0 justify-content-around align-items-center border-bottom">
       <div className="w-50 text-left ">
         <h2 className="text-primary font-weight-bold">Blogs</h2>
       </div>

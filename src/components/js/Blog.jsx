@@ -6,7 +6,7 @@ import "../css/blog.css";
 const Blog = ({ blog }) => {
   const { id, author, description, title } = blog;
   return (
-    <article className="container-fluid border col mb-3">
+    <article className="container-fluid border-bottom py-2 col mb-3">
       <button className="delete btn btn-outline-danger">
         <i className="fa fa-trash"></i>
       </button>
@@ -18,7 +18,7 @@ const Blog = ({ blog }) => {
           {id}: {title}
         </h3>
       </div>
-      <div className="container-fluid">
+      <div className="w-sm-50 w- 75 ml-3">
         <p>{description}</p>
       </div>
       <div className="container-fluid">
