@@ -1,5 +1,5 @@
 article {
-  position: relative;
+  position: absolute;
   cursor: pointer;
 }
 
@@ -20,4 +20,15 @@ article:hover {
 
 .delete {
   right: 5px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
 }
