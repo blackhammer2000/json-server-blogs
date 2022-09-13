@@ -5,7 +5,7 @@ import "../css/blog.css";
 import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, index }) => {
   const { id, author, description, title } = blog;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
@@ -23,7 +23,7 @@ const Blog = ({ blog }) => {
         </button>
         <div className="container-fluid border-bottom pb-2">
           <h3>
-            {id}: {title}
+            {index + 1}: {title}
           </h3>
         </div>
         <div className="w-sm-50 w- 75 ml-3 font-italic mt-2">
