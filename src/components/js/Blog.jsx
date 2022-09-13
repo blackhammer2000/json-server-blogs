@@ -13,9 +13,7 @@ const Blog = ({ blog }) => {
     <>
       <article
         className="container bg-light py-2 col mb-3"
-        onClick={() => {
-          setBlogModal(id, setSelectedBlog, setError);
-        }}
+        onClick={() => setBlogModal(id, setSelectedBlog, setError)}
       >
         <button className="delete btn btn-outline-danger">
           <i className="fa fa-trash"></i>

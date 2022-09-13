@@ -8,9 +8,10 @@ const BlogModal = ({ blog, setSelectedBlog, error, ...props }) => {
   return (
     <>
       {error && (
-        <div className="container-fluid text-center">
-          {" "}
-          <h4>{error}</h4>
+        <div {...props}>
+          <div className="container-fluid border-bottom pb-2 d-flex justify-content-around mt-3">
+            <h5>{error}</h5>
+          </div>
         </div>
       )}
       {blog && !error && (
