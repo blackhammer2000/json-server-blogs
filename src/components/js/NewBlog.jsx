@@ -7,12 +7,12 @@ const NewBlog = () => {
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   return (
-    <fieldset className="border-top mt-3 p-3 main">
+    <fieldset className="border-top mt-1 p-3 main">
       <legend className="text-center w-50">
         <h4>Create New Blog</h4>
       </legend>
       <form
-        className="form mt-1 container border px-5 py-4"
+        className="form container border px-5 py-4"
         onSubmit={(e) => submitBlogData(e, title, description, author)}
       >
         <div className="form-group">
