@@ -10,9 +10,7 @@ const BlogList = ({ blogs, setError }) => {
   return (
     <div className="container-fluid relative">
       {blogs.map((blog) => {
-        return (
-          <Blog blog={blog} key={blog.id} blogs={blogs} setError={setError} />
-        );
+        return <Blog blog={blog} key={blog.id} blogs={blogs} />;
       })}
     </div>
   );

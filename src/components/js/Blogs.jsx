@@ -10,7 +10,7 @@ const Blogs = () => {
     <div className="container col mt-3">
       {loading && !blogs && !error && <Loader />}
       {error && !blogs && <div className="container">{error}</div>}
-      {blogs && <BlogList blogs={blogs} setError={setError} />}
+      {blogs && <BlogList blogs={blogs} />}
     </div>
   );
 };
