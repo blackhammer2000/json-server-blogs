@@ -5,7 +5,7 @@ import BlogList from "./BlogList";
 import Loader from "./Loader";
 
 const Blogs = () => {
-  const { loading, error, blogs, setError } = useFetchData();
+  const { loading, error, blogs } = useFetchData();
   return (
     <div className="container col mt-3">
       {loading && !blogs && !error && <Loader />}

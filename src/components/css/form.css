@@ -1,0 +1,9 @@
+.main {
+  height: 85vh;
+  display: grid;
+  place-items: center;
+}
+
+form {
+  border-radius: 5px;
+}
