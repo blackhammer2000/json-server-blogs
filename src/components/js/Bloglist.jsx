@@ -4,7 +4,13 @@ import "../css/bloglist.css";
 // import BlogModal from "./Blog";
 // import { useFullBlogData } from "../../hooks/useFullBlogData";
 
-const BlogList = ({ blogs, deleteBlog }) => {
+const BlogList = ({
+  blogs,
+  deleteBlog,
+  blogToEditID,
+  editBlog,
+  setBlogToEditID,
+}) => {
   // const { selectedBlogID, setSelectedBlogID } = useFullBlogData();
 
   return (
@@ -17,6 +23,9 @@ const BlogList = ({ blogs, deleteBlog }) => {
             key={blog.id}
             blogs={blogs}
             deleteBlog={deleteBlog}
+            editBlog={editBlog}
+            blogToEditID={blogToEditID}
+            setBlogToEditID={setBlogToEditID}
           />
         );
       })}

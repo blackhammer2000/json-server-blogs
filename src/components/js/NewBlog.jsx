@@ -94,6 +94,7 @@ const NewBlog = () => {
         // console.log(data);
       }
       console.log(response);
+      window.location.pathname = window.location.pathname.replace("new", "");
     } catch (error) {
       console.log(error.message);
     }

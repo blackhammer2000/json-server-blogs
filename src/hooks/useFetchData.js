@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 export function useFetchData() {
   const [error, setError] = useState(null);
   const [blogs, setBlogs] = useState(null);
-  // const [isBlogs, setIsBlogs] = useState(false);
+  const [blogsChanged, setBlogsChanged] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [blogToEditID, setBlogToEditID] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,7 +28,15 @@ export function useFetchData() {
         }
       })();
     }, 3000);
-  }, []);
+  }, [blogsChanged]);
 
-  return { loading, error, blogs, setBlogs };
+  return {
+    loading,
+    error,
+    blogs,
+    blogsChanged,
+    setBlogsChanged,
+    blogToEditID,
+    setBlogToEditID,
+  };
 }
