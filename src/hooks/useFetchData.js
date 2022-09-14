@@ -26,7 +26,7 @@ export function useFetchData() {
           setLoading(false);
         }
       })();
-    }, 2000);
+    }, 3000);
   }, []);
 
   return { loading, error, blogs };

@@ -1,38 +1,8 @@
 {
   "blogs": [
     {
-      "title": "Blog 1",
-      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
-      "id": 1,
-      "author": "sam"
-    },
-    {
-      "title": "Blog 2",
-      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
-      "id": 2,
-      "author": "sam"
-    },
-    {
-      "title": "Blog 3",
-      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
-      "id": 3,
-      "author": "sam"
-    },
-    {
-      "title": "Blog 4",
-      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
-      "id": 4,
-      "author": "sam"
-    },
-    {
-      "title": "Blog 5",
-      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
-      "id": 5,
-      "author": "sam"
-    },
-    {
       "title": "Food Crisis",
-      "description": "dhckjsadbfjasbdcm,asbckadsjkjad,s m,av sdcb,masbdj,hasdbcnsc vkjasdvbka.sjdbj,asjkf.sadbfasdkjfhk.sajdnfkdshflsdifjbhsdjfglsauifdhjsdfhjkdsfskjldhfjksbhcsbvhjbsajdflsdjfsh;aldjkfhasuiedfhds.jfsdfheuifhwehdjbfuyewgfjbjs,bf;fhdulihfdlsabjfsafhladsiug;.duflabjdfbasdjfgbasldhdfjdskfkasdfhkjsadbfmnbsadnm bcnam,bsdnbf,sdjf,asdbnf,masdnfb,sjdbc,msadbcsadj,bc,jsdhbm,sc and,.sbcshvhs, cnms,c bsdbhchds,fb,dsa.sdfjhdsjkfbhksdbca.jdskfhksdhbflwlyfygewluedlHSDFKL",
+      "description": "an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.an app the consumes the open weather API an displays the weather of your current location in the DOM and also has the ability to search weather for any other location in the world.",
       "author": "Andrew Tate",
       "id": "4dc1d7c9-b172-417c-8450-25135c260f2a",
       "date": "9/13/2022"

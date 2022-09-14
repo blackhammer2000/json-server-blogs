@@ -10,6 +10,7 @@ function App() {
       <Header />
       <div className="container col">
         <Routes>
+          <Route path="/" element={<Blogs />} />
           <Route path="/home" element={<Blogs />} />
           <Route path="/new" element={<NewBlog />} />
         </Routes>

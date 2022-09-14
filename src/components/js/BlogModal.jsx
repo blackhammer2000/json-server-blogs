@@ -4,7 +4,7 @@ import "../css/bootstrap.min.css";
 const BlogModal = ({ blog, setSelectedBlog, error, ...props }) => {
   if (!blog) return null;
 
-  const { title, description, author } = blog;
+  const { title, description, author, date } = blog;
   return (
     <>
       {error && (
@@ -29,7 +29,9 @@ const BlogModal = ({ blog, setSelectedBlog, error, ...props }) => {
             <p>{description}</p>
           </div>
           <div className="container-fluid text-center mt-3">
-            <h6 className="font-weight-lighter">Published by {author}</h6>
+            <h6 className="font-weight-lighter">
+              Published by {author} on {date}
+            </h6>
           </div>
         </div>
       )}

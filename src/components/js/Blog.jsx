@@ -4,9 +4,10 @@ import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/blog.css";
 import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
+import { Routes, Route, Link } from "react-router-dom";
 
 const Blog = ({ blog, index }) => {
-  const { id, author, description, title } = blog;
+  const { id, author, description, title, date } = blog;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
   return (
@@ -23,7 +24,7 @@ const Blog = ({ blog, index }) => {
         </button>
         <div className="container-fluid border-bottom pb-2">
           <h3>
-            {index + 1}: {title}
+            {index + 1}: {title}...
           </h3>
         </div>
         <div className="w-sm-50 w- 75 ml-3 font-italic mt-2">
@@ -33,7 +34,9 @@ const Blog = ({ blog, index }) => {
           </p>
         </div>
         <div className="container-fluid">
-          <h6 className="font-weight-lighter">Written by {author}</h6>
+          <h6 className="font-weight-lighter">
+            Published by {author} on {date}
+          </h6>
         </div>
       </article>
       <BlogModal

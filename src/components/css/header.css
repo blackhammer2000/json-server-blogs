@@ -1,12 +1,15 @@
-heading {
+.header {
   position: relative;
 }
 
-header {
+.heading {
   position: absolute;
+  display: flex;
+  content: "";
   top: 0;
   left: 10px;
   z-index: 3;
+  color: #2196ed;
 }
 
 .one {

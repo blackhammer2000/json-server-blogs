@@ -30,5 +30,6 @@ article:hover {
   bottom: 0;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
+  border-radius: 5px;
+  min-height: 100vh;
 }
