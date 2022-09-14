@@ -29,5 +29,5 @@ export function useFetchData() {
     }, 3000);
   }, []);
 
-  return { loading, error, blogs };
+  return { loading, error, blogs, setBlogs };
 }

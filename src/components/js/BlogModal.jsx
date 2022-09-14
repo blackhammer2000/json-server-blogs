@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/bootstrap.min.css";
 
-const BlogModal = ({ blog, setSelectedBlog, error, ...props }) => {
+const BlogModal = ({ blog, setSelectedBlog, error, setError, ...props }) => {
   if (!blog) return null;
 
   const { title, description, author, date } = blog;
@@ -11,6 +11,7 @@ const BlogModal = ({ blog, setSelectedBlog, error, ...props }) => {
         <div {...props}>
           <div className="container-fluid border-bottom pb-2 d-flex justify-content-around mt-3">
             <h5>{error}</h5>
+            <button className="btn btn-outline-danger" onClick={( ) => setError(null)}>X</button>
           </div>
         </div>
       )}

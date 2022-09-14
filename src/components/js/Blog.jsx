@@ -4,9 +4,9 @@ import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/blog.css";
 import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 
-const Blog = ({ blog, index }) => {
+const Blog = ({ blog, index, deleteBlog }) => {
   const { id, author, description, title, date } = blog;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
@@ -14,9 +14,16 @@ const Blog = ({ blog, index }) => {
     <>
       <article
         className="container bg-light py-2 col mb-3"
-        onClick={() => setBlogModal(id, setSelectedBlog, setError)}
+        onClick={(e) =>
+          !e.target.classList.contains("fa" || "btn")
+            ? setBlogModal(id, setSelectedBlog, setError)
+            : null
+        }
       >
-        <button className="delete btn btn-outline-danger">
+        <button
+          className="delete btn btn-outline-danger"
+          onClick={() => deleteBlog(id, setError)}
+        >
           <i className="fa fa-trash"></i>
         </button>
         <button className="edit btn btn-outline-primary">
@@ -44,6 +51,7 @@ const Blog = ({ blog, index }) => {
         blog={selectedBlog}
         setSelectedBlog={setSelectedBlog}
         error={error}
+        setError={setError}
       />
     </>
   );
