@@ -9,13 +9,16 @@ const BlogModal = ({
   blogToEditID,
   ...props
 }) => {
-  // const blogToEdit = blogToEditID ? blog : null;
-  const { id, title, description, author, date } = blog;
-  const [editTitle, setEditTitle] = useState(title);
-  const [editDescription, setEditDescription] = useState(description);
-  const [editAuthor, setEditAuthor] = useState(author);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [editAuthor, setEditAuthor] = useState("");
 
   if (!blog) return null;
+  const { title, description, author, date } = blog;
+
+  setEditTitle(title);
+  setEditDescription(description);
+  setEditAuthor(author);
 
   return (
     <>
@@ -112,7 +115,7 @@ const BlogModal = ({
       author: editAuthor,
     };
 
-    const patchConfiguration = {
+    const patchConfigurations = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -122,13 +125,13 @@ const BlogModal = ({
 
     try {
       const res = await fetch(
-        `http://localhost:8000/blog/${id}`,
-        patchConfiguration
+        `http://localhost:8000/blog/${blog.id}`,
+        patchConfigurations
       );
       if (!res.ok) {
         throw new Error("Server Error, Could Not Find Resources To Patch...");
       }
-      console.log(`Blog ${id} successfully edited...`);
+      console.log(`Blog ${blog.id} successfully edited...`);
     } catch (error) {
       setError(error.message);
     }
