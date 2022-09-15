@@ -1,4 +1,10 @@
-export const setBlogModal = async (id, setSelectedBlog, setError) => {
+export const setBlogModal = async (
+  id,
+  setSelectedBlog,
+  blogToEditID,
+  editBlog,
+  setError
+) => {
   //   window.location.pathname = `${window.location.pathname.replace(
   //     "3000",
   //     "8000"
@@ -9,9 +15,14 @@ export const setBlogModal = async (id, setSelectedBlog, setError) => {
 
     const data = await res.json();
 
-    if (data) {
+    if (!blogToEditID) {
+      if (data) {
+        setSelectedBlog(data);
+        //   console.log(data);
+      }
+    } else {
+      editBlog(id);
       setSelectedBlog(data);
-      //   console.log(data);
     }
   } catch (error) {
     setError(error.message);

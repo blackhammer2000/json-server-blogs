@@ -48,7 +48,7 @@ const BlogModal = ({
           </div>
         </div>
       )}
-      {!blog && !error && blogToEditID && <div>edit page</div>}
+      {blog && !error && blogToEditID && <div>edit page</div>}
     </>
   );
 };

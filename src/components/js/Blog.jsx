@@ -6,14 +6,7 @@ import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
 // import { Routes, Route, Link } from "react-router-dom";
 
-const Blog = ({
-  blog,
-  index,
-  deleteBlog,
-  editBlog,
-  blogToEditID,
-  setBlogToEditID,
-}) => {
+const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
   const { id, author, description, title, date } = blog;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
@@ -22,8 +15,14 @@ const Blog = ({
       <article
         className="container bg-light py-2 col mb-3"
         onClick={(e) =>
-          !e.target.classList.contains("btn-outline-danger" || "fa-trash")
-            ? setBlogModal(id, setSelectedBlog, setBlogToEditID, setError)
+          !e.target.classList.contains("btn" || "fa")
+            ? setBlogModal(
+                id,
+                setSelectedBlog,
+                blogToEditID,
+                editBlog,
+                setError
+              )
             : null
         }
       >
@@ -37,6 +36,7 @@ const Blog = ({
           className="edit btn btn-outline-primary"
           onClick={() => {
             editBlog(id);
+            setBlogModal(id, setSelectedBlog, blogToEditID, editBlog, setError);
             console.log(blogToEditID);
           }}
         >

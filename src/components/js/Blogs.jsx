@@ -25,7 +25,6 @@ const Blogs = () => {
           deleteBlog={deleteBlog}
           editBlog={editBlog}
           blogToEditID={blogToEditID}
-          setBlogToEditID={setBlogToEditID}
         />
       )}
     </div>
