@@ -59,14 +59,17 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
           </h6>
         </div>
       </article>
-      <BlogModal
-        className="modal pb-2 d-flex flex-column"
-        blog={selectedBlog}
-        setSelectedBlog={setSelectedBlog}
-        error={error}
-        setError={setError}
-        blogToEditID={blogToEditID}
-      />
+      {(selectedBlog || error) && (
+        <BlogModal
+          className="modal pb-2 d-flex flex-column"
+          blog={selectedBlog}
+          setSelectedBlog={setSelectedBlog}
+          error={error}
+          editBlog={editBlog}
+          setError={setError}
+          blogToEditID={blogToEditID}
+        />
+      )}
     </>
   );
 };

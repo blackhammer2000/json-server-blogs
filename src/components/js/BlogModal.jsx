@@ -7,22 +7,18 @@ const BlogModal = ({
   error,
   setError,
   blogToEditID,
+  editBlog,
   ...props
 }) => {
-  const [editTitle, setEditTitle] = useState("");
-  const [editDescription, setEditDescription] = useState("");
-  const [editAuthor, setEditAuthor] = useState("");
-
-  if (!blog) return null;
   const { title, description, author, date } = blog;
 
-  setEditTitle(title);
-  setEditDescription(description);
-  setEditAuthor(author);
+  const [editTitle, setEditTitle] = useState(title);
+  const [editDescription, setEditDescription] = useState(description);
+  const [editAuthor, setEditAuthor] = useState(author);
 
   return (
     <>
-      {error && !blog && !blogToEditID && (
+      {error && !blogToEditID && (
         <div {...props}>
           <div className="container-fluid border-bottom pb-2 d-flex justify-content-around mt-3">
             <h5>{error}</h5>
@@ -62,7 +58,10 @@ const BlogModal = ({
             <h3>Edit Blog</h3>
             <button
               className="btn btn-outline-danger"
-              onClick={() => setSelectedBlog(null)}
+              onClick={() => {
+                editBlog(null);
+                setSelectedBlog(null);
+              }}
             >
               X
             </button>
@@ -74,6 +73,7 @@ const BlogModal = ({
               value={editTitle}
               className="form-control"
               onChange={(e) => updateState(e, setEditTitle)}
+              required
             />
           </div>
           <div className="form-group container">
@@ -84,6 +84,7 @@ const BlogModal = ({
               className="form-control"
               rows={6}
               onChange={(e) => updateState(e, setEditDescription)}
+              required
             />
           </div>
           <div className="form-group container">
@@ -93,11 +94,17 @@ const BlogModal = ({
               value={editAuthor}
               className="form-control"
               onChange={(e) => updateState(e, setEditAuthor)}
+              required
             />
           </div>
-          <button className="btn btn-outline-info w-50 text-center">
-            Edit blog
-          </button>
+          <div className="form-group container text-center mt-3">
+            <button
+              type="button"
+              className="btn btn-outline-info w-75 text-center"
+            >
+              Edit blog
+            </button>
+          </div>
         </form>
       )}
     </>
@@ -125,13 +132,16 @@ const BlogModal = ({
 
     try {
       const res = await fetch(
-        `http://localhost:8000/blog/${blog.id}`,
+        `http://localhost:8000/blogs/${blog.id}`,
         patchConfigurations
       );
       if (!res.ok) {
         throw new Error("Server Error, Could Not Find Resources To Patch...");
       }
       console.log(`Blog ${blog.id} successfully edited...`);
+      window.location.pathname.includes("home")
+        ? window.location.pathname.replace("home", "")
+        : window.location.reload();
     } catch (error) {
       setError(error.message);
     }

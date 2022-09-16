@@ -36,9 +36,9 @@ const Blogs = () => {
   }
 
   async function deleteBlog(id, setError) {
-    Notification.requestPermission().then((permission) => {
-      console.log(permission);
-    });
+    // Notification.requestPermission().then((permission) => {
+    //   console.log(permission);
+    // });
     const requestConfigurations = {
       method: "DELETE",
       headers: {
