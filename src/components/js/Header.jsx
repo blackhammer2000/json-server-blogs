@@ -11,6 +11,7 @@ const Header = () => {
         <h2 className=" heading two text-white  font-weight-bold">Blogs</h2>
         <h2 className="heading three font-weight-bold">Blogs</h2>
       </div>
+
       <ul className="row list-unstyled w-25 justify-content-around mt-3 ">
         <CustomLink to="/home">Home</CustomLink>
         <CustomLink to="/new">New Blog</CustomLink>
