@@ -6,15 +6,53 @@
   position: absolute;
   display: flex;
   content: "";
-  top: 0;
-  left: 10px;
-  z-index: 3;
-  color: #2196ed;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  letter-spacing: 1.5px;
 }
 
 .one {
-  color: #2196ed;
+  color: #2196f3;
+  z-index: 1;
+  animation: glitch 0.3s infinite alternate;
 }
+
+.three {
+  color: #e91e63;
+  z-index: 2;
+  animation: glitch 0.3s infinite alternate reverse;
+}
+
 .two {
-  color: #ef2163;
+  z-index: 3;
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    top: 50%;
+    left: 20%;
+  }
+
+  20% {
+    top: 46%;
+    left: 19.7%;
+  }
+
+  40% {
+    top: 54%;
+    left: 20.3%;
+  }
+
+  60% {
+    top: 46%;
+    left: 20.3%;
+  }
+
+  80% {
+    top: 54%;
+    left: 19.7%;
+  }
 }

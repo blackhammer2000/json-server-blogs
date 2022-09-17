@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/bootstrap.min.css";
+// import { useHistory } from "react-router-dom";
 
 const BlogModal = ({
   blog,
@@ -139,6 +140,7 @@ const BlogModal = ({
         throw new Error("Server Error, Could Not Find Resources To Patch...");
       }
       console.log(`Blog ${blog.id} successfully edited...`);
+
       window.location.pathname.includes("home")
         ? window.location.pathname.replace("home", "")
         : window.location.reload();
