@@ -58,15 +58,32 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
             Published by {author} on {date}
           </h6>
         </div>
-        <div className="reactions container-fluid d-flex justify-content-center border">
+        <div className="reactions container-fluid d-flex justify-content-center  mt-4">
           <div className="w-75 row justify-content-center">
-            <div className="like w-25 border text-center">
-              <button className="btn btn-outline-primary border-light w-75">
+            <div className="likes w-25 text-center">
+              <button className="btn btn-outline-primary border-light w-75 text-light">
                 <i className="fa fa-thumbs-up"></i>
+                <span className="likes-count count font-weight-bold ml-2">
+                  26K
+                </span>
               </button>
             </div>
-            <div className="like w-25">like</div>
-            <div className="like w-25">like</div>
+            <div className="comments w-25 text-center">
+              <button className="btn btn-outline-primary border-light w-75 text-light">
+                <i className="fa fa-comment"></i>{" "}
+                <span className="comments comments-count font-weight-bold ml-2">
+                  26K
+                </span>
+              </button>
+            </div>
+            <div className="share w-25 text-center">
+              <button className="btn btn-outline-primary border-light w-75">
+                <i className="fa fa-share"></i>{" "}
+                <span className="comments comments-count font-weight-bold ml-2">
+                  Share
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </article>
