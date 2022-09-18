@@ -62,7 +62,7 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
           <div className="w-75 row justify-content-center">
             <div className="like w-25 border text-center">
               <button className="btn btn-outline-primary border-light w-75">
-                <i className="fa fa-ok"></i>
+                <i className="fa fa-thumbs-up"></i>
               </button>
             </div>
             <div className="like w-25">like</div>
