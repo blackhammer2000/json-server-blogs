@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
+import "../css/reaction.css";
 
 const Reaction = ({ blog, reaction, reactionData }) => {
   const { data, error } = ReactionData(reactionData, reaction, blog.id);

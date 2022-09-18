@@ -18,6 +18,7 @@ export const setBlogModal = async (
     if (!blogToEditID) {
       if (data) {
         setSelectedBlog(data);
+        // console.log(e.target);
         //   console.log(data);
       }
     } else {

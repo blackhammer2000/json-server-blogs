@@ -17,7 +17,7 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
       <article
         className="container bg-light py-2 col mb-3"
         onClick={(e) =>
-          !e.target.classList.contains("btn" || "fa" || "reactions")
+          !e.target.classList.contains("btn" || "fa")
             ? setBlogModal(
                 id,
                 setSelectedBlog,

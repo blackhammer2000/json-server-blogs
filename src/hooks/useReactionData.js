@@ -44,6 +44,7 @@ export async function updateDatabase(newData, blog, reaction) {
   };
 
   try {
+    console.log(reaction);
     const res = await fetch(
       `http://localhost:8000/blogs/${blog.id}`,
       patchConfigurations
