@@ -70,9 +70,14 @@ const NewBlog = () => {
       title,
       description,
       author,
+      id: crypto.randomUUID(),
+      date: new Date().toLocaleDateString(),
+      reactions: {
+        likes: [],
+        comments: [],
+        shares: [],
+      },
     };
-    blogPost.id = crypto.randomUUID();
-    blogPost.date = new Date().toLocaleDateString();
 
     const requestConfigurations = {
       method: "POST",

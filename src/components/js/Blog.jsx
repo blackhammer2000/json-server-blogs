@@ -4,10 +4,12 @@ import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/blog.css";
 import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
+import Reaction from "./Reaction";
 // import { Routes, Route, Link } from "react-router-dom";
 
 const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
   const { id, author, description, title, date } = blog;
+  const { likes, comments, shares } = blog.reactions;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
   return (
@@ -59,12 +61,27 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
           </h6>
         </div>
         <div className="reactions container-fluid d-flex justify-content-center  mt-4">
-          <div className="w-75 row justify-content-center">
-            <div className="likes w-25 text-center">
+          <div className="w-75 row justify-content-center w-sm-100">
+            <Reaction reaction="likes" reactionData={likes} blogID={blog.id} />
+            <Reaction
+              reaction="comments"
+              reactionData={comments}
+              blogID={blog.id}
+            />
+            <Reaction
+              reaction="shares"
+              reactionData={shares}
+              blogID={blog.id}
+            />
+            {/* <div className="likes w-25 text-center">
               <button className="btn btn-outline-primary border-light w-75 text-light">
                 <i className="fa fa-thumbs-up"></i>
                 <span className="likes-count count font-weight-bold ml-2">
-                  26K
+                  {likes.lenght
+                    ? likes.length < 1000
+                      ? likes.length
+                      : `${likes.length / 1000}K`
+                    : null}
                 </span>
               </button>
             </div>
@@ -72,18 +89,26 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
               <button className="btn btn-outline-primary border-light w-75 text-light">
                 <i className="fa fa-comment"></i>{" "}
                 <span className="comments comments-count font-weight-bold ml-2">
-                  26K
+                  {comments.length
+                    ? comments.length < 1000
+                      ? comments.length
+                      : `${comments.length / 1000}K`
+                    : null}
                 </span>
               </button>
             </div>
             <div className="share w-25 text-center">
-              <button className="btn btn-outline-primary border-light w-75">
+              <button className="btn btn-outline-primary border-light w-75 text-light">
                 <i className="fa fa-share"></i>{" "}
                 <span className="comments comments-count font-weight-bold ml-2">
-                  Share
+                  {comments.length
+                    ? comments.length < 1000
+                      ? comments.length
+                      : `${comments.length / 1000}K`
+                    : null}
                 </span>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </article>

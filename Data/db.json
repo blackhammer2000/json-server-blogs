@@ -5,7 +5,24 @@
       "description": "dsjakfbjksdadabfas,c ms,bjdkflasddiufh;asiuaf.;dsf",
       "author": "me",
       "id": "b81f87db-9a85-4ee1-ae55-213e61b89108",
-      "date": "9/15/2022"
+      "date": "9/15/2022",
+      "reactions": {
+        "likes": [
+          {
+            "name": "Sheldon Cooper",
+            "id": "b81f87db-9a85-4ee1-ae55-jshdjgye23u7"
+          }
+        ],
+        "comments": [
+          {
+            "name": "Sheldon Cooper",
+            "id": "b81f87db-9a85-4ee1-ae55-jshdjgye23u7",
+            "comment": "I love the work you are doing with this blog article",
+            "replies": []
+          }
+        ],
+        "shares": []
+      }
     }
   ]
 }
