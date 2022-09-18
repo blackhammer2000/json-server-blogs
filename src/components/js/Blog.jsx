@@ -17,7 +17,7 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
       <article
         className="container bg-light py-2 col mb-3"
         onClick={(e) =>
-          !e.target.classList.contains("btn" || "fa")
+          !e.target.classList.contains("btn" || "fa" || "reactions")
             ? setBlogModal(
                 id,
                 setSelectedBlog,
@@ -62,17 +62,9 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
         </div>
         <div className="reactions container-fluid d-flex justify-content-center  mt-4">
           <div className="w-75 row justify-content-center w-sm-100">
-            <Reaction reaction="likes" reactionData={likes} blogID={blog.id} />
-            <Reaction
-              reaction="comments"
-              reactionData={comments}
-              blogID={blog.id}
-            />
-            <Reaction
-              reaction="shares"
-              reactionData={shares}
-              blogID={blog.id}
-            />
+            <Reaction reaction="likes" reactionData={likes} blog={blog} />
+            <Reaction reaction="comments" reactionData={comments} blog={blog} />
+            <Reaction reaction="shares" reactionData={shares} blog={blog} />
             {/* <div className="likes w-25 text-center">
               <button className="btn btn-outline-primary border-light w-75 text-light">
                 <i className="fa fa-thumbs-up"></i>

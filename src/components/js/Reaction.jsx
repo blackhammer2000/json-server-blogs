@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 
-const Reaction = ({ blogID, reaction, reactionData }) => {
-  const { data, error } = ReactionData(reactionData, reaction, blogID);
+const Reaction = ({ blog, reaction, reactionData }) => {
+  const { data, error } = ReactionData(reactionData, reaction, blog.id);
 
   return (
     <div className="likes w-25 text-center">
@@ -14,7 +14,7 @@ const Reaction = ({ blogID, reaction, reactionData }) => {
               name: "John Paul",
               id: "ksjfs-sdfjkshdfui-4uh4uh4-4j3jn4u3",
             },
-            blogID,
+            blog,
             reaction
           );
         }}

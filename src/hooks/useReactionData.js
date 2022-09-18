@@ -8,9 +8,7 @@ export function ReactionData(currentData, reaction, blogID) {
   useEffect(() => {
     (async function () {
       try {
-        const res = await fetch(
-          `http://localhost:8000/blogs/${blogID}/${reaction}`
-        );
+        const res = await fetch(`http://localhost:8000/blogs/${blogID}`);
 
         if (!res.ok) {
           throw new Error("Server Error, Could Not Find Resources");
@@ -18,31 +16,36 @@ export function ReactionData(currentData, reaction, blogID) {
 
         const resInfo = await res.json();
         if (resInfo) {
-          setData(resInfo);
-          console.log(data);
+          setData(resInfo.reactions[reaction]);
+          console.log(resInfo.reactions[reaction]);
         }
       } catch (error) {
         console.log(error.message);
         setError(error.message);
       }
     })();
-  });
+  }, []);
 
   return { data, error };
 }
 
-export async function updateDatabase(newData, blogID, reaction) {
+export async function updateDatabase(newData, blog, reaction) {
   const patchConfigurations = {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newData),
+    body: JSON.stringify({
+      reactions: {
+        [reaction]: [newData, ...blog.reactions[reaction]],
+        ...blog.reactions,
+      },
+    }),
   };
 
   try {
     const res = await fetch(
-      `http://localhost:8000/blogs/${blogID}/${reaction}`,
+      `http://localhost:8000/blogs/${blog.id}`,
       patchConfigurations
     );
 
