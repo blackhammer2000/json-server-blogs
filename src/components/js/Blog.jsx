@@ -47,7 +47,7 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
             {index + 1}: {title}...
           </h3>
         </div>
-        <div className="w-sm-50 w- 75 ml-3 font-italic mt-2">
+        <div className="w-sm-50 w-75 ml-3 font-italic mt-2">
           <p>
             {description.slice(0, Math.round(description.length / 3))}...{" "}
             <span className="text-info">Read More</span>
@@ -57,6 +57,17 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
           <h6 className="font-weight-lighter">
             Published by {author} on {date}
           </h6>
+        </div>
+        <div className="reactions container-fluid d-flex justify-content-center border">
+          <div className="w-75 row justify-content-center">
+            <div className="like w-25 border text-center">
+              <button className="btn btn-outline-primary border-light w-75">
+                <i className="fa fa-ok"></i>
+              </button>
+            </div>
+            <div className="like w-25">like</div>
+            <div className="like w-25">like</div>
+          </div>
         </div>
       </article>
       {(selectedBlog || error) && (
