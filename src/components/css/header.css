@@ -22,7 +22,7 @@
 .header .three {
   color: #e91e63;
   z-index: 2;
-  animation: glitch 0.3s infinite reverse;
+  animation: glitch 0.3s infinite alternate-reverse;
 }
 
 .two {
