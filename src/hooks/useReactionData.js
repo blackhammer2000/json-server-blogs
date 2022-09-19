@@ -30,6 +30,13 @@ export function ReactionData(currentData, reaction, blogID) {
 }
 
 export async function updateDatabase(newData, blog, reaction) {
+  //   const reactionOption =
+  //     reaction === "likes"
+  //       ? "likes"
+  //       : reaction === "comments"
+  //       ? "comments"
+  //       : "shares";
+
   const patchConfigurations = {
     method: "PATCH",
     headers: {
