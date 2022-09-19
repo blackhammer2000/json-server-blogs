@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export function ReactionData(currentData, reaction, blogID) {
   const [data, setData] = useState(currentData);
+  const [changeMonitor, setChangeMonitor] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,9 +25,9 @@ export function ReactionData(currentData, reaction, blogID) {
         setError(error.message);
       }
     })();
-  }, []);
+  }, [changeMonitor]);
 
-  return { data, error };
+  return { data, error, changeMonitor, setChangeMonitor };
 }
 
 export async function updateDatabase(newData, blog, reaction) {
@@ -57,6 +58,7 @@ export async function updateDatabase(newData, blog, reaction) {
     console.log(data);
   } catch (error) {
     console.log(error.message);
+    // setError(error.message);
     return { error: error.message };
   }
 }

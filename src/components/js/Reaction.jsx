@@ -3,8 +3,12 @@ import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
 
 const Reaction = ({ blog, reaction, reactionData }) => {
-  const { data } = ReactionData(reactionData, reaction, blog.id);
-  const userData = JSON.parse(localStorage.getItem("blogs-user-data"));
+  const { data, changeMonitor, setChangeMonitor } = ReactionData(
+    reactionData,
+    reaction,
+    blog.id
+  );
+  //   const userData = JSON.parse(localStorage.getItem("blogs-user-data"));
 
   return (
     <div className="likes w-25 text-center">
@@ -20,6 +24,7 @@ const Reaction = ({ blog, reaction, reactionData }) => {
             blog,
             reaction
           );
+          setChangeMonitor(!changeMonitor);
         }}
       >
         {reaction === "likes" ? (
