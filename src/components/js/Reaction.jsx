@@ -3,7 +3,7 @@ import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
 
 const Reaction = ({ blog, reaction, reactionData }) => {
-  const { data, error } = ReactionData(reactionData, reaction, blog.id);
+  const { data } = ReactionData(reactionData, reaction, blog.id);
 
   return (
     <div className="likes w-25 text-center">
@@ -13,7 +13,7 @@ const Reaction = ({ blog, reaction, reactionData }) => {
           updateDatabase(
             {
               name: "John Paul",
-              id: "ksjfs-sdfjkshdfui-4uh4uh4-4j3jn4u3",
+              id: crypto.randomUUID(),
             },
             blog,
             reaction

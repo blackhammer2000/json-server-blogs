@@ -53,7 +53,8 @@ export async function updateDatabase(newData, blog, reaction) {
     if (!res.ok) {
       throw new Error("Server Error, Could Not Find Resources To Update...");
     }
-    return await res.json();
+    const data = await res.json();
+    console.log(data);
   } catch (error) {
     console.log(error.message);
     return { error: error.message };
