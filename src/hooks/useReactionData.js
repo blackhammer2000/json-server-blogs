@@ -30,12 +30,8 @@ export function ReactionData(currentData, reaction, blogID) {
 }
 
 export async function updateDatabase(newData, blog, reaction) {
-  //   const reactionOption =
-  //     reaction === "likes"
-  //       ? "likes"
-  //       : reaction === "comments"
-  //       ? "comments"
-  //       : "shares";
+  const allReactions = blog.reactions;
+  allReactions[reaction].push(newData);
 
   const patchConfigurations = {
     method: "PATCH",
@@ -43,15 +39,12 @@ export async function updateDatabase(newData, blog, reaction) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      reactions: {
-        [reaction]: [newData, ...blog.reactions[reaction]],
-        ...blog.reactions,
-      },
+      reactions: allReactions,
     }),
   };
 
   try {
-    console.log(reaction);
+    console.log(blog.reactions[reaction]);
     const res = await fetch(
       `http://localhost:8000/blogs/${blog.id}`,
       patchConfigurations
