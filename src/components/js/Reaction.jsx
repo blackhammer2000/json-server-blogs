@@ -13,10 +13,9 @@ const Reaction = ({ blog, reaction, reactionData }) => {
   return (
     <div className="likes w-25 text-center">
       <button
-        className="btn btn-outline-primary border-light w-75 text-light"
-        data_reaction={reaction}
+        className={`btn btn-outline-primary border-light w-75 text-light ${reaction}`}
         onClick={(e) => {
-          e.target.data_reaction === "likes"
+          e.target.classList.contains("likes")
             ? updateDatabase(
                 {
                   name: "John Paul",
@@ -26,7 +25,7 @@ const Reaction = ({ blog, reaction, reactionData }) => {
                 blog,
                 reaction
               )
-            : e.target.data_reaction === "comments"
+            : e.target.classList.contains("comments")
             ? updateDatabase(
                 {
                   name: "John Paul",
@@ -50,8 +49,8 @@ const Reaction = ({ blog, reaction, reactionData }) => {
                     facebook: [],
                     twitter: [],
                     instagram: [],
-                    total_shares: 0,
                   },
+                  total_shares: 0,
                 },
                 blog,
                 reaction
@@ -60,13 +59,16 @@ const Reaction = ({ blog, reaction, reactionData }) => {
           setChangeMonitor(!changeMonitor);
         }}
       >
-        {reaction === "likes" ? (
-          <i className="fa fa-thumbs-up"></i>
-        ) : reaction === "comments" ? (
-          <i className="fa fa-comment"></i>
-        ) : (
-          <i className="fa fa-share"></i>
-        )}
+        <i
+          className={
+            reaction === "likes"
+              ? `fa fa-thumbs-up ${reaction}`
+              : reaction === "comments"
+              ? `fa fa-comment ${reaction}`
+              : `fa fa-share ${reaction}`
+          }
+          data_reaction={reaction}
+        ></i>
 
         <span className="likes-count count font-weight-bold ml-2">
           {data.length
