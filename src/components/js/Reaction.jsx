@@ -67,7 +67,6 @@ const Reaction = ({ blog, reaction, reactionData }) => {
               ? `fa fa-comment ${reaction}`
               : `fa fa-share ${reaction}`
           }
-          data_reaction={reaction}
         ></i>
 
         <span className="likes-count count font-weight-bold ml-2">
