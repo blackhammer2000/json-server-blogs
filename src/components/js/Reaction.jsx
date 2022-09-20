@@ -14,8 +14,9 @@ const Reaction = ({ blog, reaction, reactionData }) => {
     <div className="likes w-25 text-center">
       <button
         className="btn btn-outline-primary border-light w-75 text-light"
+        data_reaction={reaction}
         onClick={(e) => {
-          e.target.classList.contains("btn" && "fa-thumbs-up")
+          e.target.data_reaction === "likes"
             ? updateDatabase(
                 {
                   name: "John Paul",
@@ -25,7 +26,7 @@ const Reaction = ({ blog, reaction, reactionData }) => {
                 blog,
                 reaction
               )
-            : e.target.classList.contains("btn" && "fa-comment")
+            : e.target.data_reaction === "comments"
             ? updateDatabase(
                 {
                   name: "John Paul",
