@@ -17,6 +17,32 @@
             "name": "John Paul",
             "email": "waweruzamuel@gmail.com",
             "id": "faf6e5e5-62f7-466a-ae08-5f11cc227ce0"
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "a94527da-a6a5-4dcc-ba6f-6998e147735f"
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "328d1daf-3aa2-49f6-8412-9426af892439",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "5b9d0752-f060-497d-8d32-e396aee9f561"
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "1a5f86e9-50d9-4b51-972e-5219e56a8be8"
           }
         ],
         "comments": [
@@ -39,9 +65,105 @@
               "replies": [],
               "comment_ID": "a3caae29-7d7a-4b25-b048-7d73e05fb63a"
             }
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "24b3e4e3-9747-4835-9711-697016efb821",
+            "comment": {
+              "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
+              "replies": [],
+              "comment_ID": "9e7e4315-6fde-412c-b86b-479537727f78"
+            }
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "af5d8720-a525-4907-b169-b9a4783bea86",
+            "comment": {
+              "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
+              "replies": [],
+              "comment_ID": "98ab1203-8a16-4284-869f-b2599f871c8f"
+            }
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "4c1d7f9f-19b5-48f4-a6d3-dd2a09c612c5",
+            "comment": {
+              "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
+              "replies": [],
+              "comment_ID": "87345637-bc26-4090-8898-20b6b0fdbe34"
+            }
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "a4c0a075-192f-4063-a0b1-89157b7b87d8",
+            "comment": {
+              "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
+              "replies": [],
+              "comment_ID": "27922831-a95c-4e8f-8e03-837cac965746"
+            }
           }
         ],
-        "shares": []
+        "shares": [
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "0bd04d36-61b6-4f4d-aaa5-a2b6faff22d5",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "1c47bc79-5083-451f-9a3c-cb2db999c062",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "e22944ea-78c1-4aa6-99bc-aa19a3c607c9",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "7582a920-6928-465b-be1b-b6ea49a71468",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          },
+          {
+            "name": "John Paul",
+            "email": "waweruzamuel@gmail.com",
+            "id": "4acf443e-1d4e-4548-a3e0-84a496339075",
+            "shares": {
+              "facebook": [],
+              "twitter": [],
+              "instagram": []
+            },
+            "total_shares": 0
+          }
+        ]
       }
     }
   ]
