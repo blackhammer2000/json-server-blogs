@@ -9,16 +9,16 @@ export function ReactionData(currentData, reaction, blogID) {
   useEffect(() => {
     (async function () {
       try {
-        const res = await fetch(`http://localhost:8000/blogs/${blogID}`);
+        const response = await fetch(`http://localhost:8000/blogs/${blogID}`);
 
-        if (!res.ok) {
+        if (!response.ok) {
           throw new Error("Server Error, Could Not Find Resources");
         }
 
-        const resInfo = await res.json();
-        if (resInfo) {
-          setData(resInfo.reactions[reaction]);
-          console.log(resInfo.reactions[reaction]);
+        const responseInfo = await response.json();
+        if (responseInfo) {
+          setData(responseInfo.reactions[reaction]);
+          console.log(responseInfo.reactions[reaction]);
         }
       } catch (error) {
         console.log(error.message);

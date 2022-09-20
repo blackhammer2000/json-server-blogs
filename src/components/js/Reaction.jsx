@@ -14,16 +14,48 @@ const Reaction = ({ blog, reaction, reactionData }) => {
     <div className="likes w-25 text-center">
       <button
         className="btn btn-outline-primary border-light w-75 text-light"
-        onClick={() => {
-          updateDatabase(
-            {
-              name: "John Paul",
-              email: "waweruzamuel@gmail.com",
-              id: crypto.randomUUID(),
-            },
-            blog,
-            reaction
-          );
+        onClick={(e) => {
+          e.target.classList.contains("btn" && "fa-thumbs-up")
+            ? updateDatabase(
+                {
+                  name: "John Paul",
+                  email: "waweruzamuel@gmail.com",
+                  id: crypto.randomUUID(),
+                },
+                blog,
+                reaction
+              )
+            : e.target.classList.contains("btn" && "fa-comment")
+            ? updateDatabase(
+                {
+                  name: "John Paul",
+                  email: "waweruzamuel@gmail.com",
+                  id: crypto.randomUUID(),
+                  comment: {
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
+                    replies: [],
+                    comment_ID: crypto.randomUUID(),
+                  },
+                },
+                blog,
+                reaction
+              )
+            : updateDatabase(
+                {
+                  name: "John Paul",
+                  email: "waweruzamuel@gmail.com",
+                  id: crypto.randomUUID(),
+                  shares: {
+                    facebook: [],
+                    twitter: [],
+                    instagram: [],
+                    total_shares: 0,
+                  },
+                },
+                blog,
+                reaction
+              );
+
           setChangeMonitor(!changeMonitor);
         }}
       >
