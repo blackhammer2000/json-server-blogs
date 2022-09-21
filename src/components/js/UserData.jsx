@@ -44,10 +44,11 @@ const UserData = () => {
   function submitData(e, name, email) {
     e.preventDefault();
     const userData = { name, email };
-    let storage = JSON.parse(localStorage.getItem("blogs-user-data")) || {};
-    if (!storage) {
-      storage = userData;
+    let storage = JSON.parse(localStorage.getItem("blogs-user-data"));
+    if (storage === null || undefined) {
       localStorage.setItem("blogs-user-data", JSON.stringify(userData));
+      setName("");
+      setEmail("");
     }
   }
 };

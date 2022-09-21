@@ -46,5 +46,6 @@ export function useFetchData() {
     blogToEditID,
     setBlogToEditID,
     userData,
+    setUserData,
   };
 }

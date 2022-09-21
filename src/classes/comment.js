@@ -3,9 +3,9 @@ export class Comment {
     return {
       name: name,
       email: email,
+      comment_ID: crypto.randomUUID(),
       comment: {
         body: body,
-        comment_ID: crypto.randomUUID(),
         replies: [],
       },
     };

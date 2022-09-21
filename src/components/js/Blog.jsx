@@ -7,7 +7,14 @@ import BlogModal from "./BlogModal";
 import Reaction from "./Reaction";
 // import { Routes, Route, Link } from "react-router-dom";
 
-const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
+const Blog = ({
+  blog,
+  index,
+  deleteBlog,
+  editBlog,
+  blogToEditID,
+  setUserData,
+}) => {
   const { id, author, description, title, date } = blog;
   const { likes, comments, shares } = blog.reactions;
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -62,45 +69,24 @@ const Blog = ({ blog, index, deleteBlog, editBlog, blogToEditID }) => {
         </div>
         <div className="reactions container-fluid d-flex justify-content-center  mt-4">
           <div className="w-75 row justify-content-center w-sm-100">
-            <Reaction reaction="likes" reactionData={likes} blog={blog} />
-            <Reaction reaction="comments" reactionData={comments} blog={blog} />
-            <Reaction reaction="shares" reactionData={shares} blog={blog} />
-            {/* <div className="likes w-25 text-center">
-              <button className="btn btn-outline-primary border-light w-75 text-light">
-                <i className="fa fa-thumbs-up"></i>
-                <span className="likes-count count font-weight-bold ml-2">
-                  {likes.lenght
-                    ? likes.length < 1000
-                      ? likes.length
-                      : `${likes.length / 1000}K`
-                    : null}
-                </span>
-              </button>
-            </div>
-            <div className="comments w-25 text-center">
-              <button className="btn btn-outline-primary border-light w-75 text-light">
-                <i className="fa fa-comment"></i>{" "}
-                <span className="comments comments-count font-weight-bold ml-2">
-                  {comments.length
-                    ? comments.length < 1000
-                      ? comments.length
-                      : `${comments.length / 1000}K`
-                    : null}
-                </span>
-              </button>
-            </div>
-            <div className="share w-25 text-center">
-              <button className="btn btn-outline-primary border-light w-75 text-light">
-                <i className="fa fa-share"></i>{" "}
-                <span className="comments comments-count font-weight-bold ml-2">
-                  {comments.length
-                    ? comments.length < 1000
-                      ? comments.length
-                      : `${comments.length / 1000}K`
-                    : null}
-                </span>
-              </button>
-            </div> */}
+            <Reaction
+              reaction="likes"
+              reactionData={likes}
+              blog={blog}
+              setUserData={setUserData}
+            />
+            <Reaction
+              reaction="comments"
+              reactionData={comments}
+              blog={blog}
+              setUserData={setUserData}
+            />
+            <Reaction
+              reaction="shares"
+              reactionData={shares}
+              blog={blog}
+              setUserData={setUserData}
+            />
           </div>
         </div>
       </article>

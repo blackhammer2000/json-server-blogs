@@ -5,8 +5,7 @@ export function ReactionData(currentData, reaction, blogID) {
   const [data, setData] = useState(currentData);
   const [changeMonitor, setChangeMonitor] = useState(false);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
+  const [userData, setUserData] = useEffect(() => {
     (async function () {
       try {
         const response = await fetch(`http://localhost:8000/blogs/${blogID}`);
