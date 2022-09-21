@@ -19,6 +19,7 @@ const Blogs = () => {
 
   return (
     <div className="container col mt-3">
+      {!loading && !blogs && !error && !userData && <UserData />}
       {loading && !blogs && !error && !userData && <Loader />}
       {error && !blogs && <div className="container">{error}</div>}
       {blogs && (

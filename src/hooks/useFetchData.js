@@ -9,9 +9,9 @@ export function useFetchData() {
   const [blogToEditID, setBlogToEditID] = useState(null);
 
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("blogs-user-data"));
-    if (userInfo) {
-      setTimeout(() => {
+    setTimeout(() => {
+      const userInfo = JSON.parse(localStorage.getItem("blogs-user-data"));
+      if (userInfo) {
         (async function () {
           try {
             const response = await fetch("http://localhost:8000/blogs");
@@ -31,10 +31,10 @@ export function useFetchData() {
             setLoading(false);
           }
         })();
-      }, 3000);
-    } else {
-      setLoading(false);
-    }
+      } else {
+        setLoading(false);
+      }
+    }, 3000);
   }, [blogsChanged]);
 
   return {
