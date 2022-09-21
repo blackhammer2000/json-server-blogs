@@ -3,6 +3,7 @@ import { useFetchData } from "../../hooks/useFetchData";
 import "../css/bootstrap.min.css";
 import BlogList from "./BlogList";
 import Loader from "./Loader";
+import UserData from "./UserData";
 
 const Blogs = () => {
   const {
@@ -13,11 +14,12 @@ const Blogs = () => {
     setBlogsChanged,
     blogToEditID,
     setBlogToEditID,
+    userData,
   } = useFetchData();
 
   return (
     <div className="container col mt-3">
-      {loading && !blogs && !error && <Loader />}
+      {loading && !blogs && !error && !userData && <Loader />}
       {error && !blogs && <div className="container">{error}</div>}
       {blogs && (
         <BlogList

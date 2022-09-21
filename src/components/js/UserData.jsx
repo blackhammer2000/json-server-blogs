@@ -9,7 +9,7 @@ const UserData = () => {
     <form
       className="form container"
       onSubmit={(e) => {
-        SubmitData(e, name, email);
+        submitData(e, name, email);
       }}
     >
       <div className="form-group">
@@ -38,7 +38,7 @@ const UserData = () => {
     </form>
   );
 
-  function SubmitData(e, name, email) {
+  function submitData(e, name, email) {
     e.preventDefault();
     const userData = { name, email };
     let storage = JSON.parse(localStorage.getItem("blogs-user-data")) || {};
