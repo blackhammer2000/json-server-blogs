@@ -7,7 +7,13 @@
       "id": "bd004b48-b802-4d54-b5e5-274515b5e7ae",
       "date": "9/18/2022",
       "reactions": {
-        "likes": [],
+        "likes": [
+          {
+            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
+            "email": "waweruzamuel@gmail.com",
+            "like_ID": "7a24be27-2dfb-438b-a4d2-fb2e33df6f7d"
+          }
+        ],
         "comments": [],
         "shares": []
       }

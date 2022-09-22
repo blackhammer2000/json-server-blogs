@@ -22,13 +22,19 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
   );
   // const share = new Share();
 
+  const isLiked = data.find((reaction) => reaction.email === email);
+
   return (
     <div className="likes w-25 text-center">
       <button
-        className={`btn btn-outline-primary border-light w-75 text-light ${reaction}`}
+        className={
+          isLiked
+            ? `btn btn-primary border-light w-75 text-light ${reaction}`
+            : `btn btn-outline-primary border-light w-75 text-light ${reaction}`
+        }
         onClick={(e) => {
           e.target.classList.contains("likes")
-            ? handleLike(data, like, blog, reaction, userData)
+            ? handleLike(data, like, blog, reaction)
             : e.target.classList.contains("comments")
             ? updateDatabase(comment, blog, reaction)
             : updateDatabase(
@@ -72,17 +78,16 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
 };
 /////EVENT HANDLERS
 
-async function handleLike(data, like, blog, reaction, userData) {
+async function handleLike(data, newLike, blog, reaction) {
   try {
     if (data) {
-      const likeMatched = data.find((like) => like.email === userData.email);
+      const likeMatched = data.find((like) => like.email === newLike.email);
 
-      if (likeMatched === null || undefined) {
-        updateDatabase(like, blog, reaction);
-      } else {
-        // console.log("you have already liked this post...");
+      if (likeMatched) {
         throw new Error("you have already liked this post...");
       }
+
+      updateDatabase(newLike, blog, reaction);
     }
   } catch (error) {
     console.log(error.message);
