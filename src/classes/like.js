@@ -1,5 +1,5 @@
 export class Like {
   constructor(name, email) {
-    return { name, email, id: crypto.randomUUID() };
+    return { name, email, like_ID: crypto.randomUUID() };
   }
 }

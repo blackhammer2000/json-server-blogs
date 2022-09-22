@@ -3,6 +3,7 @@ import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
 import { Like } from "../../classes/like";
 import { Comment } from "../../classes/comment";
+import { Share } from "../../classes/share";
 
 const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { data, changeMonitor, setChangeMonitor } = ReactionData(
@@ -19,6 +20,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     email,
     "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
   );
+  const share = new Share();
 
   return (
     <div className="likes w-25 text-center">
@@ -34,9 +36,9 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
                   ...userData,
                   id: crypto.randomUUID(),
                   shares: {
-                    facebook: [],
-                    twitter: [],
-                    instagram: [],
+                    facebook: 0,
+                    twitter: 0,
+                    instagram: 0,
                   },
                   total_shares: 0,
                 },

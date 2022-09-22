@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function ReactionData(currentData, reaction, blogID) {
   const [data, setData] = useState(currentData);
@@ -30,9 +30,11 @@ export function ReactionData(currentData, reaction, blogID) {
   return { data, error, changeMonitor, setChangeMonitor };
 }
 
-export async function updateDatabase(newData, blog, reaction) {
+export async function UpdateDatabase(newData, blog, reaction) {
   const allReactions = blog.reactions;
   allReactions[reaction].push(newData);
+
+  const navigate = useNavigate();
 
   const patchConfigurations = {
     method: "PATCH",
@@ -56,6 +58,7 @@ export async function updateDatabase(newData, blog, reaction) {
     }
     const data = await res.json();
     console.log(data);
+    navigate("/");
   } catch (error) {
     console.log(error.message);
     // setError(error.message);
