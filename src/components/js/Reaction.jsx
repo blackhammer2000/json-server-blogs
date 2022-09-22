@@ -28,7 +28,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
         className={`btn btn-outline-primary border-light w-75 text-light ${reaction}`}
         onClick={(e) => {
           e.target.classList.contains("likes")
-            ? updateDatabase(like, blog, reaction)
+            ? handleLike(data, like, blog, reaction, userData)
             : e.target.classList.contains("comments")
             ? updateDatabase(comment, blog, reaction)
             : updateDatabase(
@@ -72,19 +72,21 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
 };
 /////EVENT HANDLERS
 
-async function handleLike() {
+async function handleLike(data, like, blog, reaction, userData) {
   try {
-    const response = await fetch(`https://localhost:8000/blogs/${blog.id}`);
-    if (!response.ok) {
-      throw new Error(
-        "Server Error, Could Not Find Resources, Please Try Again..."
-      );
-    }
-
-    const data = await response.json();
     if (data) {
+      const likeMatched = data.find((like) => like.email === userData.email);
+
+      if (likeMatched === null || undefined) {
+        updateDatabase(like, blog, reaction);
+      } else {
+        // console.log("you have already liked this post...");
+        throw new Error("you have already liked this post...");
+      }
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 export default Reaction;
