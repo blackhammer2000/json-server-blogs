@@ -76,22 +76,27 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     </div>
   );
 };
+
+export default Reaction;
 /////EVENT HANDLERS
 
-async function handleLike(data, newLike, blog, reaction) {
+async function handleLike(data, newLike, blog, reaction, isLiked) {
   try {
     if (data) {
       const likeMatched = data.find((like) => like.email === newLike.email);
 
       if (likeMatched) {
-        throw new Error("you have already liked this post...");
+        updateDatabase(newLike, blog, reaction, "DELETE");
+        console.log("post unliked...");
+
+        // throw new Error("you have already liked this post...");
       }
 
-      updateDatabase(newLike, blog, reaction);
+      updateDatabase(newLike, blog, reaction, "PATCH");
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 
-export default Reaction;
+async function unLike() {}

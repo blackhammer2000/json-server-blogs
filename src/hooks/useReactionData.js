@@ -30,11 +30,22 @@ export function ReactionData(currentData, reaction, blogID) {
   return { data, error, changeMonitor, setChangeMonitor };
 }
 
-export async function updateDatabase(newData, blog, reaction) {
+export async function updateDatabase(newData, blog, reaction, requestMethod) {
   const allReactions = blog.reactions;
-  allReactions[reaction].push(newData);
 
-  const patchConfigurations = {
+  if (requestMethod === "PATCH") {
+    allReactions[reaction].push(newData);
+  } else {
+    const duplicateLike = allReactions[reaction].find(
+      (reaction) => reaction.email === newData.email
+    );
+    allReactions[reaction].splice(
+      allReactions[reaction].indexOf(duplicateLike),
+      1
+    );
+  }
+
+  let requestConfigurations = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -48,11 +59,13 @@ export async function updateDatabase(newData, blog, reaction) {
     console.log(blog.reactions[reaction]);
     const res = await fetch(
       `http://localhost:8000/blogs/${blog.id}`,
-      patchConfigurations
+      requestConfigurations
     );
 
     if (!res.ok) {
-      throw new Error("Server Error, Could Not Find Resources To Update...");
+      throw new Error(
+        `Server Error, Could Not Find Resources To ${requestMethod}...`
+      );
     }
     const data = await res.json();
     console.log(data);
