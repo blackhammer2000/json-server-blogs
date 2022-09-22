@@ -13,7 +13,7 @@ const Blog = ({
   deleteBlog,
   editBlog,
   blogToEditID,
-  setUserData,
+  userData,
 }) => {
   const { id, author, description, title, date } = blog;
   const { likes, comments, shares } = blog.reactions;
@@ -73,19 +73,19 @@ const Blog = ({
               reaction="likes"
               reactionData={likes}
               blog={blog}
-              setUserData={setUserData}
+              userData={userData}
             />
             <Reaction
               reaction="comments"
               reactionData={comments}
               blog={blog}
-              setUserData={setUserData}
+              userData={userData}
             />
             <Reaction
               reaction="shares"
               reactionData={shares}
               blog={blog}
-              setUserData={setUserData}
+              userData={userData}
             />
           </div>
         </div>

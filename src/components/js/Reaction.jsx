@@ -1,14 +1,24 @@
 import React from "react";
 import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
+import { Like } from "../../classes/like";
+import { Comment } from "../../classes/comment";
 
-const Reaction = ({ blog, reaction, reactionData }) => {
+const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { data, changeMonitor, setChangeMonitor } = ReactionData(
     reactionData,
     reaction,
     blog.id
   );
-  //   const userData = JSON.parse(localStorage.getItem("blogs-user-data"));
+
+  const { name, email } = userData;
+
+  const like = new Like(name, email);
+  const comment = new Comment(
+    name,
+    email,
+    "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
+  );
 
   return (
     <div className="likes w-25 text-center">
@@ -16,34 +26,12 @@ const Reaction = ({ blog, reaction, reactionData }) => {
         className={`btn btn-outline-primary border-light w-75 text-light ${reaction}`}
         onClick={(e) => {
           e.target.classList.contains("likes")
-            ? updateDatabase(
-                {
-                  name: "John Paul",
-                  email: "waweruzamuel@gmail.com",
-                  id: crypto.randomUUID(),
-                },
-                blog,
-                reaction
-              )
+            ? updateDatabase(like, blog, reaction)
             : e.target.classList.contains("comments")
-            ? updateDatabase(
-                {
-                  name: "John Paul",
-                  email: "waweruzamuel@gmail.com",
-                  id: crypto.randomUUID(),
-                  comment: {
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Id nisi recusandae repellat qui iure.",
-                    replies: [],
-                    comment_ID: crypto.randomUUID(),
-                  },
-                },
-                blog,
-                reaction
-              )
+            ? updateDatabase(comment, blog, reaction)
             : updateDatabase(
                 {
-                  name: "John Paul",
-                  email: "waweruzamuel@gmail.com",
+                  ...userData,
                   id: crypto.randomUUID(),
                   shares: {
                     facebook: [],

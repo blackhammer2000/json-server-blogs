@@ -15,7 +15,6 @@ const Blogs = () => {
     blogToEditID,
     setBlogToEditID,
     userData,
-    setUserData,
   } = useFetchData();
 
   return (
@@ -29,7 +28,7 @@ const Blogs = () => {
           deleteBlog={deleteBlog}
           editBlog={editBlog}
           blogToEditID={blogToEditID}
-          setUserData={setUserData}
+          userData={userData}
         />
       )}
     </div>
