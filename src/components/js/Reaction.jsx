@@ -3,7 +3,7 @@ import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
 import { Like } from "../../classes/like";
 import { Comment } from "../../classes/comment";
-import { Share } from "../../classes/share";
+// import { Share } from "../../classes/share";
 
 const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { data, changeMonitor, setChangeMonitor } = ReactionData(
@@ -20,7 +20,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     email,
     "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
   );
-  const share = new Share();
+  // const share = new Share();
 
   return (
     <div className="likes w-25 text-center">
@@ -69,8 +69,22 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
       </button>
     </div>
   );
-
-  /////EVENT HANDLERS
 };
+/////EVENT HANDLERS
+
+async function handleLike() {
+  try {
+    const response = await fetch(`https://localhost:8000/blogs/${blog.id}`);
+    if (!response.ok) {
+      throw new Error(
+        "Server Error, Could Not Find Resources, Please Try Again..."
+      );
+    }
+
+    const data = await response.json();
+    if (data) {
+    }
+  } catch (error) {}
+}
 
 export default Reaction;

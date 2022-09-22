@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "../css/bootstrap.min.css";
+// import { useNavigate } from "react-router-dom";
 
 const UserData = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  // const navigate = useNavigate();
 
   return (
     <fieldset className="text-center">
@@ -20,8 +23,7 @@ const UserData = () => {
             className="form-control"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
-            required
+            placeholder="Name(optional)"
           />
         </div>
         <div className="form-group">
@@ -30,7 +32,7 @@ const UserData = () => {
             className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
+            placeholder="*Email"
             required
           />
         </div>
@@ -43,12 +45,17 @@ const UserData = () => {
 
   function submitData(e, name, email) {
     e.preventDefault();
-    const userData = { name, email };
+    const userData = {
+      name: name ? name : `user-${crypto.randomUUID()}`,
+      email,
+      user_ID: crypto.randomUUID(),
+    };
     let storage = JSON.parse(localStorage.getItem("blogs-user-data"));
     if (storage === null || undefined) {
       localStorage.setItem("blogs-user-data", JSON.stringify(userData));
       setName("");
       setEmail("");
+      window.location.reload();
     }
   }
 };
