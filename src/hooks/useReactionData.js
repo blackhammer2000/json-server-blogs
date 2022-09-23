@@ -27,22 +27,29 @@ export function ReactionData(currentData, reaction, blogID) {
     })();
   }, [changeMonitor]);
 
-  return { data, error, changeMonitor, setChangeMonitor };
+  return { data, error, changeMonitor, setChangeMonitor, setData };
 }
 
-export async function updateDatabase(newData, blog, reaction, requestMethod) {
+export async function updateDatabase(
+  newData,
+  blog,
+  reaction,
+  requestMethod,
+  setData
+) {
   const allReactions = blog.reactions;
 
-  if (requestMethod === "PATCH") {
+  if (requestMethod === "UPDATE") {
     allReactions[reaction].push(newData);
   } else {
-    const duplicateLike = allReactions[reaction].find(
-      (reaction) => reaction.email === newData.email
-    );
-    allReactions[reaction].splice(
-      allReactions[reaction].indexOf(duplicateLike),
-      1
-    );
+    const duplicateLike = allReactions[reaction].map((reaction, index) => {
+      let likeIndex;
+      if (reaction.email === newData.email) {
+        likeIndex = index;
+      }
+      return likeIndex;
+    });
+    allReactions[reaction].splice(duplicateLike, 1);
   }
 
   let requestConfigurations = {
@@ -68,7 +75,7 @@ export async function updateDatabase(newData, blog, reaction, requestMethod) {
       );
     }
     const data = await res.json();
-    console.log(data);
+    setData(data.reactions[reaction]);
   } catch (error) {
     console.log(error.message);
     // setError(error.message);

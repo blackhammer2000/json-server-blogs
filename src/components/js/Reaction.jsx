@@ -6,7 +6,7 @@ import { Comment } from "../../classes/comment";
 // import { Share } from "../../classes/share";
 
 const Reaction = ({ blog, reaction, reactionData, userData }) => {
-  const { data, changeMonitor, setChangeMonitor } = ReactionData(
+  const { data, changeMonitor, setChangeMonitor, setData } = ReactionData(
     reactionData,
     reaction,
     blog.id
@@ -34,7 +34,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
         }
         onClick={(e) => {
           e.target.classList.contains("likes")
-            ? handleLike(data, like, blog, reaction)
+            ? handleLike(data, like, blog, reaction, setData)
             : e.target.classList.contains("comments")
             ? updateDatabase(comment, blog, reaction)
             : updateDatabase(
@@ -80,19 +80,19 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
 export default Reaction;
 /////EVENT HANDLERS
 
-async function handleLike(data, newLike, blog, reaction, isLiked) {
+async function handleLike(data, newLike, blog, reaction, setData) {
   try {
     if (data) {
       const likeMatched = data.find((like) => like.email === newLike.email);
 
       if (likeMatched) {
-        updateDatabase(newLike, blog, reaction, "DELETE");
+        updateDatabase(newLike, blog, reaction, "DELETE", setData);
         console.log("post unliked...");
-
+        return;
         // throw new Error("you have already liked this post...");
       }
 
-      updateDatabase(newLike, blog, reaction, "PATCH");
+      updateDatabase(newLike, blog, reaction, "UPDATE");
     }
   } catch (error) {
     console.log(error.message);
