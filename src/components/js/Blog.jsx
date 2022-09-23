@@ -69,8 +69,8 @@ const Blog = ({
             Published by {author} on {date}
           </h6>
         </div>
-        <div className="reactions container-fluid d-flex flex-column justify-content-center align-items-center  mt-4">
-          <div className="w-75 row justify-content-center w-sm-100">
+        <div className="reactions container-fluid d-flex flex-column justify-content-center align-items-center mt-4">
+          <div className="w-75 row justify-content-center">
             <Reaction
               reaction="likes"
               reactionData={likes}
