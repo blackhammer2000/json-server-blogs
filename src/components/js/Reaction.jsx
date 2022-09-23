@@ -98,5 +98,3 @@ async function handleLike(data, newLike, blog, reaction, setData) {
     console.log(error.message);
   }
 }
-
-async function unLike() {}

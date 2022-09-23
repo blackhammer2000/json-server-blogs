@@ -5,6 +5,8 @@ import "../css/blog.css";
 import { setBlogModal } from "../../utilities/setBlogModal";
 import BlogModal from "./BlogModal";
 import Reaction from "./Reaction";
+import Comment from "./Comment";
+
 // import { Routes, Route, Link } from "react-router-dom";
 
 const Blog = ({
