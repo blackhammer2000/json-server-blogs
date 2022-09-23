@@ -69,7 +69,7 @@ const Blog = ({
             Published by {author} on {date}
           </h6>
         </div>
-        <div className="reactions container-fluid d-flex justify-content-center  mt-4">
+        <div className="reactions container-fluid d-flex flex-column justify-content-center align-items-center  mt-4">
           <div className="w-75 row justify-content-center w-sm-100">
             <Reaction
               reaction="likes"
@@ -89,6 +89,9 @@ const Blog = ({
               blog={blog}
               userData={userData}
             />
+          </div>
+          <div className="py-0 comment-input d-flex justify-content-center align-items-center w-100  mt-2">
+            <Comment />
           </div>
         </div>
       </article>
