@@ -25,7 +25,7 @@ export function ReactionData(currentData, reaction, blogID) {
         setError(error.message);
       }
     })();
-  }, [changeMonitor]);
+  }, [changeMonitor, data]);
 
   return { data, error, changeMonitor, setChangeMonitor, setData };
 }
