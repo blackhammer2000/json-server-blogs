@@ -25,7 +25,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const isLiked = data.find((reaction) => reaction.email === email);
 
   return (
-    <div className="likes w-25 text-center">
+    <div className={`${reaction} w-25 text-center`}>
       <button
         className={
           isLiked
@@ -33,10 +33,12 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
             : `btn btn-outline-primary border-light w-75 text-light ${reaction}`
         }
         onClick={(e) => {
+          console.log(e.target.parentElement.parentElement.nextElementSibling);
+
           e.target.classList.contains("likes")
             ? handleLike(data, like, blog, reaction, setData)
             : e.target.classList.contains("comments")
-            ? updateDatabase(comment, blog, reaction)
+            ? updateDatabase(comment, blog, reaction, "UPDATE", setData)
             : updateDatabase(
                 {
                   ...userData,

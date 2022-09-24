@@ -18,14 +18,14 @@ export function ReactionData(currentData, reaction, blogID) {
         const responseInfo = await response.json();
         if (responseInfo) {
           setData(responseInfo.reactions[reaction]);
-          console.log(responseInfo.reactions[reaction]);
+          // console.log(responseInfo.reactions[reaction]);
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         setError(error.message);
       }
     })();
-  }, [changeMonitor, data]);
+  }, [changeMonitor]);
 
   return { data, error, changeMonitor, setChangeMonitor, setData };
 }
@@ -63,7 +63,7 @@ export async function updateDatabase(
   };
 
   try {
-    console.log(blog.reactions[reaction]);
+    // console.log(blog.reactions[reaction]);
     const res = await fetch(
       `http://localhost:8000/blogs/${blog.id}`,
       requestConfigurations

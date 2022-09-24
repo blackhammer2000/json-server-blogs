@@ -33,3 +33,7 @@ article:hover {
   border-radius: 5px;
   min-height: 100vh;
 }
+
+.comment-input {
+  display: none;
+}
