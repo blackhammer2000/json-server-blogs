@@ -8,44 +8,7 @@
       "date": "9/18/2022",
       "reactions": {
         "likes": [],
-        "comments": [
-          {
-            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "03bbe01e-f896-49af-9896-96b53808816e",
-            "comment": {
-              "body": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs",
-              "replies": []
-            }
-          },
-          {
-            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "b9084ff7-a1e7-48e0-ba2a-7f43cb41897b",
-            "comment": {
-              "body": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs",
-              "replies": []
-            }
-          },
-          {
-            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "e38ff7f7-2a85-4ce4-a70e-873e06cf5aa3",
-            "comment": {
-              "body": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs",
-              "replies": []
-            }
-          },
-          {
-            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "3d3a286e-bb14-40d5-a150-2694fa146e58",
-            "comment": {
-              "body": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs",
-              "replies": []
-            }
-          }
-        ],
+        "comments": [],
         "shares": []
       }
     }
