@@ -2,7 +2,7 @@ import React from "react";
 import { ReactionData, updateDatabase } from "../../hooks/useReactionData";
 import "../css/reaction.css";
 import { Like } from "../../classes/like";
-import { Comment } from "../../classes/comment";
+// import { Comment } from "../../classes/comment";
 // import { Share } from "../../classes/share";
 
 const Reaction = ({ blog, reaction, reactionData, userData }) => {
@@ -15,11 +15,11 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { name, email } = userData;
 
   const like = new Like(name, email);
-  const comment = new Comment(
-    name,
-    email,
-    "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
-  );
+  // const comment = new Comment(
+  //   name,
+  //   email,
+  //   "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
+  // );
   // const share = new Share();
 
   const isLiked = data.find((reaction) => reaction.email === email);
