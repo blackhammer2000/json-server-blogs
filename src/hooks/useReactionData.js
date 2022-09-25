@@ -39,12 +39,6 @@ export async function updateDatabase(
 ) {
   const allReactions = blog.reactions;
 
-  // requestMethod === "UPDATE"
-  //   ? allReactions[reaction].push(newData)
-  //   : (allReactions[reaction] = allReactions[reaction].map((dbReaction) => {
-  //       return dbReaction.email !== newData.Email;
-  //     }));
-
   if (requestMethod === "UPDATE") {
     allReactions[reaction].push(newData);
   } else {
