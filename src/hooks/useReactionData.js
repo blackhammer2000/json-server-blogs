@@ -25,7 +25,7 @@ export function ReactionData(currentData, reaction, blogID) {
         setError(error.message);
       }
     })();
-  }, [changeMonitor]);
+  }, [changeMonitor, data]);
 
   return { data, error, changeMonitor, setChangeMonitor, setData };
 }
@@ -39,17 +39,25 @@ export async function updateDatabase(
 ) {
   const allReactions = blog.reactions;
 
+  // requestMethod === "UPDATE"
+  //   ? allReactions[reaction].push(newData)
+  //   : (allReactions[reaction] = allReactions[reaction].map((dbReaction) => {
+  //       return dbReaction.email !== newData.Email;
+  //     }));
+
   if (requestMethod === "UPDATE") {
     allReactions[reaction].push(newData);
   } else {
-    const duplicateLike = allReactions[reaction].map((reaction, index) => {
-      let likeIndex;
-      if (reaction.email === newData.email) {
-        likeIndex = index;
+    const duplicateLikeIndex = allReactions[reaction].find(
+      (dbReaction, index) => {
+        let likeIndex;
+        if (dbReaction.email === newData.email) {
+          likeIndex = index;
+        }
+        return likeIndex;
       }
-      return likeIndex;
-    });
-    allReactions[reaction].splice(duplicateLike, 1);
+    );
+    allReactions[reaction].splice(duplicateLikeIndex, 1);
   }
 
   let requestConfigurations = {
