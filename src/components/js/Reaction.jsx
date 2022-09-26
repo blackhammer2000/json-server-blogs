@@ -12,9 +12,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     blog.id
   );
 
-  const { email } = userData;
-
-  const isLiked = data.find((dbReaction) => dbReaction.email === email);
+  const isLiked = data.find((dbReaction) => dbReaction.email === userData.email);
 
   return (
     <div className={`${reaction} w-25 text-center`}>
