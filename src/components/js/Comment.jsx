@@ -3,7 +3,7 @@ import "../css/bootstrap.min.css";
 import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/comment.css";
 import { Comment as UserComment } from "../../classes/comment";
-import { updateDatabase } from "../../hooks/useReactionData";
+import { updateDatabase, ReactionData } from "../../hooks/useReactionData";
 
 const Comment = ({ userData, blog }) => {
   const [comment, setComment] = useState("");
@@ -37,6 +37,6 @@ async function handleCommentSubmit(e, comment, blog, userData) {
   const newComment = new UserComment(name, email, comment);
 
   if (comment) {
-    updateDatabase(newComment, blog, "comments", "UPDATE", setData);
+    updateDatabase(newComment, blog, "comments", "UPDATE");
   }
 }

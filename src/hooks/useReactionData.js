@@ -35,7 +35,7 @@ export async function updateDatabase(
   blog,
   reaction,
   requestMethod,
-  setData
+  setData = null
 ) {
   const allReactions = blog.reactions;
 
@@ -77,7 +77,7 @@ export async function updateDatabase(
       );
     }
     const data = await res.json();
-    setData(data.reactions[reaction]);
+    if (setData) setData(data.reactions[reaction]);
   } catch (error) {
     console.log(error.message);
     // setError(error.message);
