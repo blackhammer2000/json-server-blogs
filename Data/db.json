@@ -9,10 +9,22 @@
       "reactions": {
         "likes": [
           {
-            "name": "user-7d412f51-0d84-4741-9b36-67ac5ea137a2",
+            "name": "SAMUEL WAWERU",
             "email": "waweruzamuel@gmail.com"
           }
         ],
+        "comments": [],
+        "shares": []
+      }
+    },
+    {
+      "title": "DATABASE ADMISNISTRATION",
+      "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi at magni pariatur architecto officia quae numquam magnam praesentium dolorum voluptates, recusandae beatae ut nemo facilis voluptatibus, hic doloribus aspernatur perferendis. Saepe a obcaecati velit fugit.",
+      "author": "Steve Njeru",
+      "id": "518fa19e-2189-4f1b-82c4-3b66c47c0699",
+      "date": "9/26/2022",
+      "reactions": {
+        "likes": [],
         "comments": [],
         "shares": []
       }
