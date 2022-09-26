@@ -91,7 +91,7 @@ const Blog = ({
             />
           </div>
           <div className="py-0 comment-input justify-content-center align-items-center w-100  mt-2">
-            <Comment />
+            <Comment userData={userData} blog={blog} />
           </div>
         </div>
       </article>

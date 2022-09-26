@@ -12,10 +12,11 @@ article:hover {
   position: absolute;
   content: "";
   top: 10px;
+  width: 5rem;
 }
 
 .edit {
-  right: 3.5rem;
+  right: 6rem;
 }
 
 .delete {
