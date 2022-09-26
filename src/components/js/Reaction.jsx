@@ -12,15 +12,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     blog.id
   );
 
-  const { name, email } = userData;
-
-  const like = new Like(name, email);
-  // const comment = new Comment(
-  //   name,
-  //   email,
-  //   "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs"
-  // );
-  // const share = new Share();
+  const { email } = userData;
 
   const isLiked = data.find((dbReaction) => dbReaction.email === email);
 
@@ -34,7 +26,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
         }
         onClick={(e) => {
           e.target.classList.contains("likes")
-            ? handleLike(isLiked, like, blog, reaction, setData)
+            ? handleLike(isLiked, blog, reaction, setData, userData)
             : e.target.classList.contains("comments")
             ? e.target.parentElement.parentElement.nextElementSibling.classList.toggle(
                 "d-flex"
@@ -83,9 +75,10 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
 export default Reaction;
 /////EVENT HANDLERS
 
-async function handleLike(isLiked, newLike, blog, reaction, setData) {
+async function handleLike(isLiked, blog, reaction, setData, userData) {
   try {
-    // const likeMatched = data.find((like) => like.email === newLike.email);
+    const { name, email } = userData;
+    const newLike = new Like(name, email);
 
     if (isLiked) {
       updateDatabase(newLike, blog, reaction, "DELETE", setData);

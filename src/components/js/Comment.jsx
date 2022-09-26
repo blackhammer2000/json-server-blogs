@@ -3,7 +3,7 @@ import "../css/bootstrap.min.css";
 import "../css/font-awesome-4.7.0/css/font-awesome.css";
 import "../css/comment.css";
 import { Comment as UserComment } from "../../classes/comment";
-import { updateDatabase, ReactionData } from "../../hooks/useReactionData";
+import { updateDatabase } from "../../hooks/useReactionData";
 
 const Comment = ({ userData, blog }) => {
   const [comment, setComment] = useState("");
@@ -15,7 +15,7 @@ const Comment = ({ userData, blog }) => {
     >
       <div className="form-group w-100 row mt-2 border">
         <input
-          className="border-0 pl-2"
+          className="fa border-0 pl-2"
           type="text"
           placeholder="Add a comment..."
           value={comment}

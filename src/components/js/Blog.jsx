@@ -21,12 +21,13 @@ const Blog = ({
   const { likes, comments, shares } = blog.reactions;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
+
   return (
     <>
       <article
         className="container bg-light py-2 col mb-3"
         onClick={(e) =>
-          !e.target.classList.contains("btn" || "fa")
+          !e.target.classList.contains("btn" || "fa" || "comment-input")
             ? setBlogModal(
                 id,
                 setSelectedBlog,
