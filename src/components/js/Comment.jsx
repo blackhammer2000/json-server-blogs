@@ -5,13 +5,15 @@ import "../css/comment.css";
 import { Comment as UserComment } from "../../classes/comment";
 import { updateDatabase } from "../../hooks/useReactionData";
 
-const Comment = ({ userData, blog }) => {
+const Comment = ({ userData, blog, reaction, reactionData }) => {
   const [comment, setComment] = useState("");
 
   return (
     <form
       className="form container-fluid d-flex justify-content-center align-items-center"
-      onSubmit={(e) => handleCommentSubmit(e, comment, blog, userData)}
+      onSubmit={(e) =>
+        handleCommentSubmit(e, comment, blog, userData, setComment)
+      }
     >
       <div className="form-group w-100 row mt-2 border">
         <input
@@ -31,12 +33,13 @@ const Comment = ({ userData, blog }) => {
 };
 export default Comment;
 
-async function handleCommentSubmit(e, comment, blog, userData) {
+async function handleCommentSubmit(e, comment, blog, userData, setComment) {
   e.preventDefault();
   const { name, email } = userData;
   const newComment = new UserComment(name, email, comment);
 
   if (comment) {
     updateDatabase(newComment, blog, "comments", "UPDATE");
+    setComment("");
   }
 }

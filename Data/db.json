@@ -13,7 +13,26 @@
             "email": "waweruzamuel@gmail.com"
           }
         ],
-        "comments": [],
+        "comments": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "08576cf0-04be-4772-8a23-46a64939824c",
+            "comment": {
+              "body": "Good Show @wwe_network.",
+              "replies": []
+            }
+          },
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "f3f38560-48d9-4489-9f05-1b4b3745f759",
+            "comment": {
+              "body": "Good Show @wwe_network.",
+              "replies": []
+            }
+          }
+        ],
         "shares": []
       }
     },
@@ -30,7 +49,35 @@
             "email": "waweruzamuel@gmail.com"
           }
         ],
-        "comments": [],
+        "comments": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "71a280b4-3ba8-4a38-a2d7-0e6c158c7282",
+            "comment": {
+              "body": "I hope to learn more on data administration, the experience was new and so was the exicitement...",
+              "replies": []
+            }
+          },
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "0d997d32-7bbd-408a-a67e-a8b5d24a0425",
+            "comment": {
+              "body": "I hope to learn more on data administration, the experience was new and so was the exicitement...",
+              "replies": []
+            }
+          },
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "47250399-255f-448e-b442-81e2edfbcb42",
+            "comment": {
+              "body": "How can I learn different types of databases effectively without wasting anytime...",
+              "replies": []
+            }
+          }
+        ],
         "shares": []
       }
     }
