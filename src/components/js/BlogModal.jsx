@@ -51,6 +51,7 @@ const BlogModal = ({
               Published by {author} on {date}
             </h6>
           </div>
+          <div className="container-fluid"></div>
         </div>
       )}
       {blog && !error && blogToEditID && (
