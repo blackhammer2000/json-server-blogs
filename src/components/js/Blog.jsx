@@ -27,7 +27,7 @@ const Blog = ({
       <article
         className="container bg-light py-2 col mb-3"
         onClick={(e) =>
-          !e.target.classList.contains("btn" || "fa" || "comment-input")
+          e.target.classList.contains("read-more")
             ? setBlogModal(
                 id,
                 setSelectedBlog,
@@ -62,7 +62,7 @@ const Blog = ({
         <div className="w-sm-50 w-75 ml-3 font-italic mt-2">
           <p>
             {description.slice(0, Math.round(description.length / 3))}...{" "}
-            <span className="text-info">Read More</span>
+            <span className="text-info read-more">Read More</span>
           </p>
         </div>
         <div className="container-fluid">

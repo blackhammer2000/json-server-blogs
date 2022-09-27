@@ -24,7 +24,12 @@
       "id": "518fa19e-2189-4f1b-82c4-3b66c47c0699",
       "date": "9/26/2022",
       "reactions": {
-        "likes": [],
+        "likes": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com"
+          }
+        ],
         "comments": [],
         "shares": []
       }
