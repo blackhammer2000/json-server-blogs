@@ -20,7 +20,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
     <div className={`${reaction} w-25 text-center`}>
       <button
         className={
-          isLiked
+          isLiked && reaction === "likes"
             ? `btn btn-primary border-light w-75 text-light ${reaction}`
             : `btn btn-outline-primary border-light w-75 text-light ${reaction}`
         }
