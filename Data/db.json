@@ -13,26 +13,7 @@
             "email": "waweruzamuel@gmail.com"
           }
         ],
-        "comments": [
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "08576cf0-04be-4772-8a23-46a64939824c",
-            "comment": {
-              "body": "Good Show @wwe_network.",
-              "replies": []
-            }
-          },
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "f3f38560-48d9-4489-9f05-1b4b3745f759",
-            "comment": {
-              "body": "Good Show @wwe_network.",
-              "replies": []
-            }
-          }
-        ],
+        "comments": [],
         "shares": []
       }
     },

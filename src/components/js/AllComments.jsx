@@ -1,10 +1,11 @@
 import React from "react";
+import CommentListItem from "./CommentListItem";
 
 const CommentsList = ({ comments }) => {
   return (
     <div>
       {comments.map((comment) => {
-        return <CommentListItem key={comment.id} />;
+        return <CommentListItem comment={comment} key={comment.id} />;
       })}
     </div>
   );
