@@ -101,7 +101,7 @@ const BlogModal = ({
           </div>
           <div className="form-group container text-center mt-3">
             <button
-              type="button"
+              type="submit"
               className="btn btn-outline-info w-75 text-center"
             >
               Edit blog
