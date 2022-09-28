@@ -13,7 +13,18 @@
             "email": "waweruzamuel@gmail.com"
           }
         ],
-        "comments": [],
+        "comments": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "4d6d8903-d36e-4645-ae70-154ecf1d0b56",
+            "time_posted": "2022-09-28T11:27:42.185Z",
+            "comment": {
+              "body": "Lovely event cheers to @wwe_network.",
+              "replies": []
+            }
+          }
+        ],
         "shares": []
       }
     },
@@ -25,35 +36,7 @@
       "date": "9/26/2022",
       "reactions": {
         "likes": [],
-        "comments": [
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "71a280b4-3ba8-4a38-a2d7-0e6c158c7282",
-            "comment": {
-              "body": "I hope to learn more on data administration, the experience was new and so was the exicitement...",
-              "replies": []
-            }
-          },
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "0d997d32-7bbd-408a-a67e-a8b5d24a0425",
-            "comment": {
-              "body": "I hope to learn more on data administration, the experience was new and so was the exicitement...",
-              "replies": []
-            }
-          },
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com",
-            "comment_ID": "47250399-255f-448e-b442-81e2edfbcb42",
-            "comment": {
-              "body": "How can I learn different types of databases effectively without wasting anytime...",
-              "replies": []
-            }
-          }
-        ],
+        "comments": [],
         "shares": []
       }
     }

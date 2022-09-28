@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/bootstrap.min.css";
+import CommentsList from "./AllComments";
 // import { useHistory } from "react-router-dom";
 
 const BlogModal = ({
@@ -11,7 +12,7 @@ const BlogModal = ({
   editBlog,
   ...props
 }) => {
-  const { title, description, author, date } = blog;
+  const { title, description, author, date, reactions } = blog;
 
   const [editTitle, setEditTitle] = useState(title);
   const [editDescription, setEditDescription] = useState(description);
@@ -51,7 +52,9 @@ const BlogModal = ({
               Published by {author} on {date}
             </h6>
           </div>
-          <div className="container-fluid"></div>
+          <div className="container-fluid">
+            <CommentsList comments={reactions.comments} />
+          </div>
         </div>
       )}
       {blog && !error && blogToEditID && (

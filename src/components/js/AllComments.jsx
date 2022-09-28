@@ -3,7 +3,7 @@ import CommentListItem from "./CommentListItem";
 
 const CommentsList = ({ comments }) => {
   return (
-    <div>
+    <div className="d-flex flex-column">
       {comments.map((comment) => {
         return <CommentListItem comment={comment} key={comment.id} />;
       })}
