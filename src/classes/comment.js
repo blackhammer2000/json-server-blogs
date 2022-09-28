@@ -5,9 +5,10 @@ export class Comment {
       email: email,
       comment_ID: crypto.randomUUID(),
       time_posted: new Date().toUTCString(),
-      comment: {
-        body: body,
-        replies: [],
+      body: body,
+      comment_reactions: {
+        comment_likes: [],
+        comment_replies: [],
       },
     };
   }
