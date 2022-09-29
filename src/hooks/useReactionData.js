@@ -8,21 +8,23 @@ export function ReactionData(currentData, reaction, blogID) {
 
   useEffect(() => {
     (async function () {
-      try {
-        const response = await fetch(`http://localhost:8000/blogs/${blogID}`);
+      if (!data) {
+        try {
+          const response = await fetch(`http://localhost:8000/blogs/${blogID}`);
 
-        if (!response.ok) {
-          throw new Error("Server Error, Could Not Find Resources");
-        }
+          if (!response.ok) {
+            throw new Error("Server Error, Could Not Find Resources");
+          }
 
-        const responseInfo = await response.json();
-        if (responseInfo) {
-          setData(responseInfo.reactions[reaction]);
-          // console.log(responseInfo.reactions[reaction]);
+          const responseInfo = await response.json();
+          if (responseInfo) {
+            setData(responseInfo.reactions[reaction]);
+            // console.log(responseInfo.reactions[reaction]);
+          }
+        } catch (error) {
+          // console.log(error.message);
+          setError(error.message);
         }
-      } catch (error) {
-        // console.log(error.message);
-        setError(error.message);
       }
     })();
   }, [changeMonitor, data]);

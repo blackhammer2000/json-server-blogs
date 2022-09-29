@@ -4,7 +4,7 @@ export class Comment {
       name: name,
       email: email,
       comment_ID: crypto.randomUUID(),
-      time_posted: new Date().toUTCString(),
+      time_posted: new Date().toLocaleString(),
       body: body,
       comment_reactions: {
         comment_likes: [],
