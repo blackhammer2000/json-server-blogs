@@ -5,7 +5,9 @@ import { Like } from "../../classes/like";
 // import { Comment } from "../../classes/comment";
 // import { Share } from "../../classes/share";
 
-const Reaction = ({ blog, reaction, reactionData, userData }) => {
+// export const monitorData = getToggleMonitorMethod();
+
+export const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { data, changeMonitor, setChangeMonitor, setData } = ReactionData(
     reactionData,
     reaction,
@@ -69,9 +71,12 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
       </button>
     </div>
   );
+
+  // const getToggleMonitorMethod = function () {
+  //   return { changeMonitor, setChangeMonitor };
+  // };
 };
 
-export default Reaction;
 /////EVENT HANDLERS
 
 async function handleLike(isLiked, blog, reaction, setData, userData) {

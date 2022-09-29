@@ -82,6 +82,7 @@ export async function updateDatabase(
     }
     const data = await res.json();
     if (setData) setData(data.reactions[reaction]);
+    if (changeMonitor) setChangeMonitor(!changeMonitor);
   } catch (error) {
     console.log(error.message);
     // setError(error.message);
