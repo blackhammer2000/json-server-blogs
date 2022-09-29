@@ -7,7 +7,7 @@ import { Like } from "../../classes/like";
 
 // export const monitorData = getToggleMonitorMethod();
 
-export const Reaction = ({ blog, reaction, reactionData, userData }) => {
+const Reaction = ({ blog, reaction, reactionData, userData }) => {
   const { data, changeMonitor, setChangeMonitor, setData } = ReactionData(
     reactionData,
     reaction,
