@@ -37,7 +37,9 @@ export async function updateDatabase(
   blog,
   reaction,
   requestMethod,
-  setData = null
+  setData = null,
+  setChangeMonitor = null,
+  changeMonitor = null
 ) {
   const allReactions = blog.reactions;
 

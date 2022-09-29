@@ -46,7 +46,6 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
                 reaction
               );
 
-          setChangeMonitor(!changeMonitor);
           // updateDatabase(comment, blog, reaction, "UPDATE", setData)
         }}
       >
