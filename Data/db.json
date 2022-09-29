@@ -7,14 +7,30 @@
       "id": "bd004b48-b802-4d54-b5e5-274515b5e7ae",
       "date": "9/18/2022",
       "reactions": {
-        "likes": [],
+        "likes": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com"
+          }
+        ],
         "comments": [
           {
             "name": "SAMUEL WAWERU",
             "email": "waweruzamuel@gmail.com",
-            "comment_ID": "bd55e465-4ba9-408c-a0ce-713fde9cae19",
-            "time_posted": "9/29/2022, 1:56:46 PM",
-            "body": "lovely event you organized...cant wait for next year.",
+            "comment_ID": "8590d9c4-4ae1-410c-b98b-f168eff16bce",
+            "time_posted": "9/29/2022, 2:11:48 PM",
+            "body": "Hope next year will even be better...Enjoyed the show.",
+            "comment_reactions": {
+              "comment_likes": [],
+              "comment_replies": []
+            }
+          },
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "a0c56d20-eef6-489e-abf9-5cc07b1ef948",
+            "time_posted": "9/29/2022, 2:18:50 PM",
+            "body": "good show...",
             "comment_reactions": {
               "comment_likes": [],
               "comment_replies": []
