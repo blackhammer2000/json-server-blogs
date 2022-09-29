@@ -3,9 +3,15 @@ import React from "react";
 const CommentListItem = ({ comment }) => {
   return (
     <div className="container d-flex flex-column border border-light mt-2 p-2">
-      <h5>{comment.name}</h5>
-      <blockquote>{comment.body}</blockquote>
-      <h6>{comment.time_posted}</h6>
+      <div className="container">
+        <h5>{comment.name}</h5>
+      </div>
+      <div className="container">
+        <blockquote>{comment.body}</blockquote>
+      </div>
+      <div className="container">
+        <h6>{comment.time_posted}</h6>
+      </div>
       <div className="container-fluid comment_reactions row">
         <button className="btn btn-outline-primary border-light">
           {" "}

@@ -27,7 +27,7 @@ export function ReactionData(currentData, reaction, blogID) {
         }
       }
     })();
-  }, [changeMonitor, data]);
+  }, [changeMonitor]);
 
   return { data, error, changeMonitor, setChangeMonitor, setData };
 }
