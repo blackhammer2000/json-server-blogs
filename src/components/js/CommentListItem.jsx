@@ -14,7 +14,6 @@ const CommentListItem = ({ comment }) => {
       </div>
       <div className="container-fluid comment_reactions row">
         <button className="btn btn-outline-primary border-light">
-          {" "}
           <i className="fa fa-thumbs-up"></i>{" "}
           <span>
             {comment.comment_reactions.comment_likes.length > 0
