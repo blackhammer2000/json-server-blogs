@@ -1,6 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 
 const EditBlog = ({ blog }) => {
+  const { title, description, author } = blog;
+
+  const [editTitle, setEditTitle] = useState(title);
+  const [editDescription, setEditDescription] = useState(description);
+  const [editAuthor, setEditAuthor] = useState(author);
+
   return (
     <form {...props} onSubmit={(e) => submitEdit(e)}>
       <div className="container border-bottom pb-2 d-flex justify-content-around mt-3">

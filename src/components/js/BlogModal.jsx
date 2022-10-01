@@ -15,10 +15,6 @@ const BlogModal = ({
 }) => {
   const { title, description, author, date, reactions } = blog;
 
-  const [editTitle, setEditTitle] = useState(title);
-  const [editDescription, setEditDescription] = useState(description);
-  const [editAuthor, setEditAuthor] = useState(author);
-
   return (
     <>
       {error && !blogToEditID && (
@@ -58,13 +54,7 @@ const BlogModal = ({
           </div>
         </div>
       )}
-      {blog && !error && blogToEditID && (
-        <EditBlog
-          blog={blog}
-          editTitle={editTitle}
-          setEditTitle={setEditTitle}
-        />
-      )}
+      {blog && !error && blogToEditID && <EditBlog blog={blog} />}
     </>
   );
 };
