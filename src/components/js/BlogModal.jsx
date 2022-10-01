@@ -54,7 +54,17 @@ const BlogModal = ({
           </div>
         </div>
       )}
-      {blog && !error && blogToEditID && <EditBlog blog={blog} />}
+      {blog && !error && blogToEditID && (
+        <div {...props}>
+          <EditBlog
+            blog={blog}
+            setSelectedBlog={setSelectedBlog}
+            editBlog={editBlog}
+            setError={setError}
+            {...props}
+          />
+        </div>
+      )}
     </>
   );
 };

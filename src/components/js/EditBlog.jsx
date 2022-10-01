@@ -1,6 +1,6 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
-const EditBlog = ({ blog }) => {
+const EditBlog = ({ blog, setSelectedBlog, setError, editBlog }) => {
   const { title, description, author } = blog;
 
   const [editTitle, setEditTitle] = useState(title);
@@ -8,7 +8,7 @@ const EditBlog = ({ blog }) => {
   const [editAuthor, setEditAuthor] = useState(author);
 
   return (
-    <form {...props} onSubmit={(e) => submitEdit(e)}>
+    <form onSubmit={(e) => submitEdit(e)}>
       <div className="container border-bottom pb-2 d-flex justify-content-around mt-3">
         <h3>Edit Blog</h3>
         <button
