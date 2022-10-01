@@ -55,6 +55,11 @@ export async function updateDatabase(
         return likeIndex;
       }
     );
+    // allReactions[reaction] = allReactions[reaction].map((entry, index) => {
+    //   let unMatchedEntry;
+    //   if (index !== duplicateLikeIndex) unMatchedEntry = entry;
+    //   return unMatchedEntry;
+    // });
     allReactions[reaction].splice(duplicateLikeIndex, 1);
   }
 

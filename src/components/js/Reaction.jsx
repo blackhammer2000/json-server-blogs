@@ -49,6 +49,7 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
               );
 
           // updateDatabase(comment, blog, reaction, "UPDATE", setData)
+          setChangeMonitor(!changeMonitor);
         }}
       >
         <i
@@ -76,6 +77,8 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
   //   return { changeMonitor, setChangeMonitor };
   // };
 };
+
+export default Reaction;
 
 /////EVENT HANDLERS
 
