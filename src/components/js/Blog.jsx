@@ -71,7 +71,7 @@ const Blog = ({
           </h6>
         </div>
         <div className="reactions container-fluid d-flex flex-column justify-content-center align-items-center mt-4">
-          <div className="w-75 row justify-content-center">
+          <div className="w-100 row justify-content-start align-items-center">
             <Reaction
               reaction="likes"
               reactionData={likes}
