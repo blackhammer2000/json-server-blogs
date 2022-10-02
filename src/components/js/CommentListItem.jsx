@@ -7,7 +7,7 @@ const CommentListItem = ({ comment }) => {
         <h5>{comment.name}</h5>
       </div>
       <div className="container mt-1 text-white">
-        <blockquote>{comment.body}</blockquote>
+        <p>{comment.body}</p>
       </div>
 
       <div className="container-fluid comment_reactions row border-top px-0 pt-2 ml-1">
