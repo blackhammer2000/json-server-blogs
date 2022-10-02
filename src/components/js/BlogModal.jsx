@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/bootstrap.min.css";
 import CommentsList from "./AllComments";
 import EditBlog from "./EditBlog";
