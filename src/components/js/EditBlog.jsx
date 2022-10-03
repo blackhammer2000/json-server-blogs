@@ -36,7 +36,7 @@ const EditBlog = ({ blog, setSelectedBlog, setError, editBlog }) => {
         <textarea
           type="text"
           value={editDescription}
-          className="form-control"
+          className="form-control bg-dark"
           rows={6}
           onChange={(e) => updateState(e, setEditDescription)}
           required
