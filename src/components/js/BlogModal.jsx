@@ -61,7 +61,6 @@ const BlogModal = ({
             setSelectedBlog={setSelectedBlog}
             editBlog={editBlog}
             setError={setError}
-            {...props}
           />
         </div>
       )}
