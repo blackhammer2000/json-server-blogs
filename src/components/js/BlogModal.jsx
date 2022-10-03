@@ -49,7 +49,7 @@ const BlogModal = ({
               Published by {author} on {date}
             </h6>
           </div>
-          <div className="container-fluid mt-2">
+          <div className="container-fluid mt-2 font-italic">
             <CommentsList comments={reactions.comments} />
           </div>
         </div>
