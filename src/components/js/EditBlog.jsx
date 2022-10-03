@@ -26,7 +26,7 @@ const EditBlog = ({ blog, setSelectedBlog, setError, editBlog }) => {
         <input
           type="text"
           value={editTitle}
-          className="form-control"
+          className="form-control bg-dark"
           onChange={(e) => updateState(e, setEditTitle)}
           required
         />
