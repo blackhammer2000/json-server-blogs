@@ -13,10 +13,6 @@ const blogSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: String,
-    required: true,
-  },
 });
 
 const Blog = model("blog", blogSchema);
