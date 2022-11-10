@@ -4,13 +4,13 @@ const { validateBlogBody } = require("./helpers/validators");
 
 router.post("/api/create/blog", validateBlogBody, async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blog = await Blog.create(req.body);
 
-    if (!blogs) throw new Error(blogs);
+    if (!blog) throw new Error(blog);
 
-    res.json({ blogs });
+    res.json({ message: "blog created", response_status: "success" });
   } catch (err) {
-    res.json({ error: err.message });
+    res.json({ error: err.message, response_status: "failed" });
   }
 });
 
