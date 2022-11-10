@@ -1,8 +1,9 @@
 const express = require("express");
 const { connect } = require("mongoose");
 const { listen } = express();
-const port = 6000;
+require("dotenv").config();
+const { PORT, DB_URL } = process.env;
 
-listen(port, () => console.log(`server running on port ${port}.`));
+listen(PORT, () => console.log(`server running on port ${PORT}.`));
 
-connect("mongodb://localhost/blogs", () => console.log("connected to db"));
+connect(DB_URL, () => console.log("connected to db"));
