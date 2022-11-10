@@ -1,13 +1,15 @@
-const { object, string, required } = require("joi");
+const joi = require("joi");
 
 const blogValidator = object({
-  title: string().required(),
-  description: string().required(),
-  author: string().required(),
+  title: joi.string().required(),
+  description: joi.string().required(),
+  author: joi.string().required(),
+  date: joi.string().required(),
+  reactions: joi.object().required(),
 });
 
 const deleteValidator = object({
-  id: string().required(),
+  id: joi.string().required(),
 });
 
 module.exports = { blogValidator, deleteValidator };
