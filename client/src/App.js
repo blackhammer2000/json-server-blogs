@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="container col">
+      <div className="container col bg-dark">
         <Routes>
           <Route path="/" element={<Blogs />} />
           <Route path="/home" element={<Blogs />} />

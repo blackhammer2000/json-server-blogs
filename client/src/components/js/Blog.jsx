@@ -25,7 +25,7 @@ const Blog = ({
   return (
     <>
       <article
-        className="container bg-light py-2 col mb-3"
+        className="container bg-light py-2 col mb-3 bg-dark"
         onClick={(e) =>
           e.target.classList.contains("read-more")
             ? setBlogModal(

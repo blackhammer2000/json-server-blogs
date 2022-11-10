@@ -8,7 +8,7 @@ const BlogList = ({ blogs, deleteBlog, blogToEditID, editBlog, userData }) => {
   // const { selectedBlogID, setSelectedBlogID } = useFullBlogData();
 
   return (
-    <div className="container-fluid relative">
+    <div className="container-fluid relative text-white-50">
       {blogs.map((blog, index) => {
         return (
           <Blog

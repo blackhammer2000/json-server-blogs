@@ -5,7 +5,7 @@ import "../css/header.css";
 
 const Header = () => {
   return (
-    <div className="container row mt-3 py-2 justify-content-around align-items-center border-bottom">
+    <div className="container row mt-3 py-2 justify-content-around align-items-center border-bottom bg-dark">
       <div className=" header d-flex w-50 ">
         <h2 className=" heading one font-weight-bold">Blogs</h2>
         <h2 className=" heading two text-white  font-weight-bold">Blogs</h2>
