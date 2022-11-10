@@ -6,7 +6,7 @@ const { connect } = require("mongoose");
 const { listen, use } = express();
 
 use(express.json());
-use(routes)
+use(routes);
 
 const { PORT, DB_URL } = process.env;
 
