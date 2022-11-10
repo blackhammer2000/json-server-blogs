@@ -1,6 +1,6 @@
 const joi = require("joi");
 
-const blogValidator = object({
+const blogValidator = joi.object({
   title: joi.string().required(),
   description: joi.string().required(),
   author: joi.string().required(),
@@ -8,7 +8,7 @@ const blogValidator = object({
   reactions: joi.object().required(),
 });
 
-const deleteValidator = object({
+const deleteValidator = joi.object({
   id: joi.string().required(),
 });
 
