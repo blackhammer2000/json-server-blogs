@@ -1,7 +1,10 @@
+require("dotenv").config();
+
 const express = require("express");
+const routes = require("");
 const { connect } = require("mongoose");
 const { listen } = express();
-require("dotenv").config();
+
 const { PORT, DB_URL } = process.env;
 
 listen(PORT, () => console.log(`server running on port ${PORT}.`));
