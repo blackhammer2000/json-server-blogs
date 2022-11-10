@@ -6,4 +6,8 @@ const blogValidator = object({
   author: string().required(),
 });
 
-module.exports = { blogValidator };
+const deleteValidator = object({
+  id: string().required(),
+});
+
+module.exports = { blogValidator, deleteValidator };
