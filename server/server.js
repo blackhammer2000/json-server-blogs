@@ -1,9 +1,12 @@
 require("dotenv").config();
 
 const express = require("express");
-const routes = require("");
+const routes = require("./routes/routes");
 const { connect } = require("mongoose");
-const { listen } = express();
+const { listen, use } = express();
+
+use(express.json());
+use(routes)
 
 const { PORT, DB_URL } = process.env;
 
