@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const Blog = require("../schemas/blog");
-const Blog = require("../val/blog");
+const { validateBlogBody } = require("./helpers/validators");
 
-router.post("/api/read/blogs", async (req, res) => {
+router.post("/api/create/blog", validateBlogBody, async (req, res) => {
   try {
     const blogs = await Blog.find();
 

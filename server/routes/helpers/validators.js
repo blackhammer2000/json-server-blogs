@@ -15,7 +15,11 @@ const validateBlogBody = async (req, res, next) => {
     };
 
     req.body = validBody;
+
+    next();
   } catch (err) {
     res.json({ error: err.message });
   }
 };
+
+module.exports = { validateBlogBody };
