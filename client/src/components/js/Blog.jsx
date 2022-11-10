@@ -59,13 +59,13 @@ const Blog = ({
             {index + 1}: {title}...
           </h3>
         </div>
-        <div className="w-sm-50 w-75 ml-3 font-italic mt-2">
+        <div className="w-sm-50 w-75 ml-3 font-italic mt-2 text-white">
           <p>
             {description.slice(0, Math.round(description.length / 3))}...{" "}
             <span className="text-info read-more">Read More</span>
           </p>
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid text-white">
           <h6 className="font-weight-lighter">
             Published by {author} on {date}
           </h6>

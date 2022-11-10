@@ -6,7 +6,7 @@ const Loader = () => {
   return (
     <div className=" loader container ">
       <div className="spinner">
-        <div className="loader-text">
+        <div className="loader-text text-white">
           <h5>Loading...</h5>
         </div>
         <div className="spinner-section spinner-section-red"></div>

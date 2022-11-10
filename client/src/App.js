@@ -6,9 +6,9 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-dark">
       <Header />
-      <div className="container col bg-dark">
+      <div className="container col">
         <Routes>
           <Route path="/" element={<Blogs />} />
           <Route path="/home" element={<Blogs />} />
