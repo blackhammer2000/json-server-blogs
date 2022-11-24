@@ -16,7 +16,7 @@ router.post("/api/create/blog", validateBlogBody, async (req, res) => {
 
     const comment = await Comment.create({ blogID: blog._id, likes: [] });
 
-    if (!like) throw new Error(like);
+    if (!comment) throw new Error(comment);
 
     res.json({ message: "blog created", response_status: "success" });
   } catch (err) {
