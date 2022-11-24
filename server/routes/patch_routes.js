@@ -4,7 +4,9 @@ const { validateBlogBody } = require("./helpers/validators");
 
 router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
   try {
-    const blog = await Blog.create(req.body);
+    if (!req.body.id) throw new Error("No blog to patch.");
+
+    const blog = await Blog.findOne({ _id: req.body.id });
 
     if (!blog) throw new Error(blog);
 
