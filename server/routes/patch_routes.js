@@ -17,6 +17,9 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
     if (!blog) throw new Error(blog);
 
     for (const property in newData) {
+      if (newData[property] === "reactions")
+        throw new Error("Cannot update reactions");
+
       if (!blog[property] || !blog.hasOwnProperty(property))
         throw new Error("Invalid prop update");
 
