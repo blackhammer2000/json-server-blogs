@@ -19,7 +19,11 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
         throw new Error("Invalid prop update");
 
       blog[property] = newData[property];
+      delete newData[property];
     }
+
+    if (Object.keys(newData))
+      throw new Error("blog update error has occurred.");
 
     res.json({ message: "blog created", response_status: "success" });
   } catch (err) {
