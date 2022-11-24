@@ -5,6 +5,6 @@ const shareSchema = new Schema({
   shares: { type: Array, required: true },
 });
 
-const Share = model("like", shareSchema);
+const Share = model("share", shareSchema);
 
 module.exports = Share;
