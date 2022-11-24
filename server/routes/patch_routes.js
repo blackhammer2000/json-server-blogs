@@ -8,7 +8,9 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
 
     if (!req.body.newData) throw new Error("No data to patch the blog.");
 
-    const blog = await Blog.findOne({ _id: req.body.id });
+    const { id, newData } = req.body;
+
+    const blog = await Blog.findOne({ _id: id });
 
     if (!blog) throw new Error(blog);
 
