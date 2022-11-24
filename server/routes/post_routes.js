@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Blog = require("../schemas/blog");
 const Like = require("../schemas/like");
+const Comment = require("../schemas/comment");
 const { validateBlogBody } = require("./helpers/validators");
 
 router.post("/api/create/blog", validateBlogBody, async (req, res) => {
@@ -10,6 +11,10 @@ router.post("/api/create/blog", validateBlogBody, async (req, res) => {
     if (!blog) throw new Error(blog);
 
     const like = await Like.create({ blogID: blog._id, likes: [] });
+
+    if (!like) throw new Error(like);
+
+    const comment = await Comment.create({ blogID: blog._id, likes: [] });
 
     if (!like) throw new Error(like);
 
