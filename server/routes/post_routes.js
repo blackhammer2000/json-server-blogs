@@ -17,11 +17,11 @@ router.post("/api/create/blog", validateBlogBody, async (req, res) => {
 
     if (!like) throw new Error(like);
 
-    const comment = await Comment.create({ blogID: blog._id, likes: [] });
+    const comment = await Comment.create({ blogID: blog._id, comments: [] });
 
     if (!comment) throw new Error(comment);
 
-    const share = await Share.create({ blogID: blog._id, likes: [] });
+    const share = await Share.create({ blogID: blog._id, shares: [] });
 
     if (!share) throw new Error(share);
 
