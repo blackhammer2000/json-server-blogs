@@ -12,6 +12,10 @@ router.post("/api/register/user", async (req, res) => {
     if (!req.body.email) throw new Error("User data not provided.");
 
     const { email } = req.body;
+
+    const userExists = await User.findOne({ email: email });
+
+    if (userExists) throw new Error("user is already registered.");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
