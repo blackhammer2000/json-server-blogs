@@ -5,6 +5,6 @@ const commentsSchema = new Schema({
   comments: { type: Array, required: true },
 });
 
-const Comment = model("like", commentsSchema);
+const Comment = model("comment", commentsSchema);
 
 module.exports = Comment;
