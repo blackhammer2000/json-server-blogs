@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Blog = require("../schemas/blog");
+const User = require("../schemas/user");
 const Like = require("../schemas/like");
 const Share = require("../schemas/share");
 const Comment = require("../schemas/comment");
