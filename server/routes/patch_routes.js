@@ -12,6 +12,13 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
 
     if (!blog) throw new Error(blog);
 
+    for (const property in newData) {
+      if (!blog[property] || !blog.hasOwnProperty(property))
+        throw new Error("Invalid prop update");
+
+      blog[property] = newData[property];
+    }
+
     res.json({ message: "blog created", response_status: "success" });
   } catch (err) {
     res.json({ error: err.message, response_status: "failed" });
