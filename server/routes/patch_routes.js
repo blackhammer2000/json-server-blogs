@@ -1,5 +1,7 @@
 const router = require("express").Router();
+
 const Blog = require("../schemas/blog");
+
 const { validateBlogBody } = require("./helpers/validators");
 
 router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
@@ -25,7 +27,14 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
     if (Object.keys(newData))
       throw new Error("blog update error has occurred.");
 
-    res.json({ message: "blog created", response_status: "success" });
+    const blogUpdate = await Blog.findOneAndUpdate({ _id: id }, { $set: blog });
+
+    if (!blogUpdate) throw new Error(blogUpdate);
+
+    res.json({
+      message: `blog ${id} updated successfully`,
+      response_status: "success",
+    });
   } catch (err) {
     res.json({ error: err.message, response_status: "failed" });
   }
