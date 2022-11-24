@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Blog = require("../schemas/blog");
+const { route } = require("./get_routes");
 
 const { validateBlogBody } = require("./helpers/validators");
 
@@ -42,6 +43,13 @@ router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
     });
   } catch (err) {
     res.json({ error: err.message, response_status: "failed" });
+  }
+});
+
+route.patch("/api/update/reactions/likes", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(400).json({ error: err.message });
   }
 });
 
