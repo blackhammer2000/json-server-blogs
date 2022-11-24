@@ -7,6 +7,13 @@ const Comment = require("../schemas/comment");
 
 const { validateBlogBody } = require("./helpers/validators");
 
+router.post("/api/register/user", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
 router.post("/api/create/blog", validateBlogBody, async (req, res) => {
   try {
     const blog = await Blog.create(req.body);
