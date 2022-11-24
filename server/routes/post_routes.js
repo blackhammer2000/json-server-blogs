@@ -16,6 +16,12 @@ router.post("/api/register/user", async (req, res) => {
     const userExists = await User.findOne({ email: email });
 
     if (userExists) throw new Error("user is already registered.");
+
+    const user = await User.create({ email: email });
+
+    if (!user._id) throw new Error(user);
+
+    res.status(201).json({ message: "user registration successfull" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
