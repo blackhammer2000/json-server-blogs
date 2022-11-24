@@ -5,7 +5,7 @@ const { route } = require("./get_routes");
 
 const { validateBlogBody } = require("./helpers/validators");
 
-router.patch("/api/update/blog", validateNewBlogBody, async (req, res) => {
+router.patch("/api/update/blog", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
