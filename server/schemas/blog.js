@@ -17,10 +17,6 @@ const blogSchema = new Schema({
     type: String,
     required: true,
   },
-  reactions: {
-    type: Object,
-    required: true,
-  },
 });
 
 const Blog = model("blog", blogSchema);
