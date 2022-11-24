@@ -9,6 +9,9 @@ const { validateBlogBody } = require("./helpers/validators");
 
 router.post("/api/register/user", async (req, res) => {
   try {
+    if (!req.body.email) throw new Error("User data not provided.");
+
+    const { email } = req.body;
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
