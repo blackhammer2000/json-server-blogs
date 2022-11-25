@@ -85,6 +85,8 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
       { _id: like._id },
       { $set: { likes: likes } }
     );
+
+    if (!updateLikes) throw new Error(updateLikes);
   } catch (err) {
     if (err.message) res.status(400).json({ error: err.message });
   }
