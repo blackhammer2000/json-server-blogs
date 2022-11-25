@@ -9,7 +9,7 @@ router.delete("/api/delete/blog", validateDeleteBody, async (req, res) => {
 
     if (!ObjectId.isValid(id)) throw new Error("Invalid document ID.");
 
-    const blog = await Blog.deleteOne({ _id: id });
+    const blog = await Blog.findOneAndRemove({ _id: id });
 
     if (!blog) throw new Error("No blog found to delete.");
 
