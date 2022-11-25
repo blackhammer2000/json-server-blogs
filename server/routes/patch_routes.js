@@ -57,7 +57,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
     const user = await User.findOne({ _id: userID });
 
-    if (!user) throw new Error(user);
+    if (!user) throw new Error("please sign up to react to any of the blogs.");
 
     const blog = await Blog.findOne({ _id: blogID });
 
@@ -113,7 +113,7 @@ router.patch("/api/reactions/create/comments", async (req, res) => {
 
     const user = await User.findOne({ _id: userID });
 
-    if (!user) throw new Error(user);
+    if (!user) throw new Error("please sign up to react to any of the blogs.");
 
     const blog = await Blog.findOne({ _id: blogID });
 
