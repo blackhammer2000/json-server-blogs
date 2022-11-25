@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Blog = require("../schemas/blog");
+const Like = require("../schemas/like");
 const { route } = require("./get_routes");
 
 const { validateBlogBody } = require("./helpers/validators");
@@ -52,11 +53,15 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
     if (!req.body.newData) throw new Error("No data to patch the blog.");
 
-    const { id, newData } = req.body;
+    const { id, email } = req.body;
 
     const blog = await Blog.findOne({ _id: id });
 
     if (!blog) throw new Error(blog);
+
+    const like = await Like.findOne({ blogID: id });
+
+    if (!like) throw new Error(like);
   } catch (err) {
     if (err.message) res.status(400).json({ error: err.message });
   }
