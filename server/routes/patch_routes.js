@@ -176,9 +176,24 @@ router.patch("/api/reactions/reply/comments", async (req, res) => {
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
 
-    const selectedComment = comments.find((comment) => {
-      if (comment.userID === userID && comment.commentID === commentID)
+    const updateComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        const { comment_replies } = comment;
+
+        if (comment_replies === (null || undefined)) return;
+
+        const comment_reply = {
+          userID,
+          replyID: crypto.randomUUID(),
+          comment_reply: commentReply,
+        };
+
+        comment_replies.push(comment_reply);
+
+        return { ...comment, comment_replies };
+      } else {
         return comment;
+      }
     });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
