@@ -125,10 +125,10 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     const newComment = {
-      commentID: crypto.randomUUID(),
       userID: user._id,
+      commentID: crypto.randomUUID(),
       comment: userComment,
-      replies: [],
+      comment_replies: [],
     };
 
     comments.push(newComment);
