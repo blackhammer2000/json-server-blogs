@@ -53,9 +53,9 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
-    const { id, email } = req.body;
+    const { id, userID } = req.body;
 
-    const user = await User.findOne({ _id: id });
+    const user = await User.findOne({ _id: userID });
 
     if (!user) throw new Error(user);
 
@@ -73,7 +73,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     const hasLiked = likes.find((like) => {
-      if (like.email === email) return like;
+      if (like.userID === userID) return like;
     });
 
     if (hasLiked) {
@@ -107,11 +107,11 @@ router.patch("/api/reactions/create/comments", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
-    const { id, userComment } = req.body;
+    const { id, userID, userComment } = req.body;
 
     if (!userComment) throw new Error("No comment was submitted...");
 
-    const user = await User.findOne({ _id: id });
+    const user = await User.findOne({ _id: userID });
 
     if (!user) throw new Error(user);
 
