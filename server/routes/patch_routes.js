@@ -71,6 +71,15 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
     const hasLiked = likes.find((like) => {
       if (like.email === email) return like;
     });
+
+    if (hasLiked) {
+      likes = likes.filter((like) => {
+        if (like.email !== email) return like;
+      });
+    } else {
+      const newLike = { email };
+      likes = likes.push(newLike);
+    }
   } catch (err) {
     if (err.message) res.status(400).json({ error: err.message });
   }
