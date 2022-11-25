@@ -145,7 +145,7 @@ router.patch("/api/reactions/create/comments", async (req, res) => {
     if (!createComment) throw new Error(createComment);
 
     res.status(201).json({
-      message: `Comment added successfully by user ${user._id}`,
+      message: `Comment posted`,
       comments,
     });
   } catch (err) {
