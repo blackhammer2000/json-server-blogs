@@ -102,7 +102,9 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
-    const { id, comment } = req.body;
+    const { id, userComment } = req.body;
+
+    if (!userComment) throw new Error("No comment was submitted...");
 
     const blog = await Blog.findOne({ _id: id });
 
@@ -114,7 +116,7 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
 
     let { comments } = comment;
 
-    if (likes === (null || undefined))
+    if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
