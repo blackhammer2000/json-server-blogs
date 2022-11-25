@@ -63,7 +63,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
     if (!like) throw new Error(like);
 
-    const { likes } = like;
+    let { likes } = like;
 
     if (likes === (null || undefined))
       throw new Error("error when fetching the blog likes.");
