@@ -99,7 +99,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
   }
 });
 
-router.patch("/api/update/reactions/comments", async (req, res) => {
+router.patch("/api/reactions/create/comments", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
@@ -115,7 +115,7 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
 
     if (!blog) throw new Error(blog);
 
-    const comment = await Comment.findOne({ blogID: id });
+    const comment = await Comment.findOne({ blogID: blog._id });
 
     if (!comment) throw new Error(comment);
 
@@ -132,6 +132,11 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
     };
 
     comments.push(newComment);
+
+    const createComment = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: comments } }
+    );
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
