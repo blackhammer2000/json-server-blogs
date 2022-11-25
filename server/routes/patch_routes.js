@@ -51,8 +51,6 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
-    if (!req.body.newData) throw new Error("No data to patch the blog.");
-
     const { id, email } = req.body;
 
     const blog = await Blog.findOne({ _id: id });
