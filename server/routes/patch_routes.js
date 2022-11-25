@@ -153,7 +153,7 @@ router.patch("/api/reactions/create/comments", async (req, res) => {
 
 router.patch("/api/reactions/reply/comments", async (req, res) => {
   try {
-    const { blogID, userID, userComment } = req.body;
+    const { blogID, userID, commentID, commentReply } = req.body;
 
     if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
 
@@ -175,6 +175,11 @@ router.patch("/api/reactions/reply/comments", async (req, res) => {
 
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
+
+    const selectedComment = comments.find((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID)
+        return comment;
+    });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
