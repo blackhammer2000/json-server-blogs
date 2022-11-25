@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Blog = require("../schemas/blog");
+const Comment = require("../schemas/comment");
 const Like = require("../schemas/like");
 const { route } = require("./get_routes");
 
@@ -101,17 +102,17 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
   try {
     if (!req.body.id) throw new Error("No blog to patch.");
 
-    const { id, email } = req.body;
+    const { id, comment } = req.body;
 
     const blog = await Blog.findOne({ _id: id });
 
     if (!blog) throw new Error(blog);
 
-    const like = await Like.findOne({ blogID: id });
+    const comment = await Comment.findOne({ blogID: id });
 
-    if (!like) throw new Error(like);
+    if (!comment) throw new Error(comment);
 
-    let { likes } = like;
+    let { comments } = comment;
 
     if (likes === (null || undefined))
       throw new Error("error when fetching the blog likes.");
