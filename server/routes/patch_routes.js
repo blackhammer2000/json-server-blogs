@@ -176,7 +176,9 @@ router.patch("/api/reactions/reply/comments", async (req, res) => {
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
 
-    const updateComments = comments.map((comment) => {
+    let selectedComment = false;
+
+    const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
         const { comment_replies } = comment;
 
@@ -190,11 +192,20 @@ router.patch("/api/reactions/reply/comments", async (req, res) => {
 
         comment_replies.push(comment_reply);
 
+        selectedComment = !selectedComment;
+
         return { ...comment, comment_replies };
       } else {
         return comment;
       }
     });
+
+    if (!selectedComment)
+      throw new Error("Error when updating your comment reply.");
+
+    res
+      .status(203)
+      .json({ comments: updatedComments, message: "comment reply posted" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
