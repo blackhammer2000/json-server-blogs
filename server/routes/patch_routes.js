@@ -49,7 +49,7 @@ router.patch("/api/update/blog", async (req, res) => {
   }
 });
 
-router.patch("/api/update/reactions/likes", async (req, res) => {
+router.patch("/api/reactions/update/likes", async (req, res) => {
   try {
     const { blogID, userID } = req.body;
 
@@ -101,7 +101,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
   }
 });
 
-router.patch("/api/reactions/create/comments", async (req, res) => {
+router.patch("/api/reactions/create/comment", async (req, res) => {
   try {
     const { blogID, userID, userComment } = req.body;
 
@@ -151,7 +151,7 @@ router.patch("/api/reactions/create/comments", async (req, res) => {
   }
 });
 
-router.patch("/api/reactions/reply/comments", async (req, res) => {
+router.patch("/api/reactions/comments/create/reply", async (req, res) => {
   try {
     const { blogID, userID, commentID, commentReply } = req.body;
 
