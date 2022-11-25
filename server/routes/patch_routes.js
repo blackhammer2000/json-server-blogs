@@ -94,9 +94,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
     res.status(203).json({
       likes: likes.length,
-      message: `${
-        hasLiked ? "unliked" : "liked"
-      } blog with ID: ...${blog._id.slice(-5)}`,
+      message: `${hasLiked ? "unliked" : "liked"} `,
     });
   } catch (err) {
     if (err.message) res.status(400).json({ error: err.message });
