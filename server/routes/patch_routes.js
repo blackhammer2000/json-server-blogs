@@ -99,4 +99,11 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
   }
 });
 
+router.patch("/api/update/reactions/comments", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
