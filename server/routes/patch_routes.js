@@ -6,6 +6,7 @@ const Comment = require("../schemas/comment");
 const crypto = require("node:crypto");
 
 const { validateBlogBody } = require("./helpers/validators");
+const User = require("../schemas/user");
 
 router.patch("/api/update/blog", async (req, res) => {
   try {
@@ -105,6 +106,10 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
     const { id, userComment } = req.body;
 
     if (!userComment) throw new Error("No comment was submitted...");
+
+    const user = await User.findOne({ _id: id });
+
+    if (!user) throw new Error(user);
 
     const blog = await Blog.findOne({ _id: id });
 
