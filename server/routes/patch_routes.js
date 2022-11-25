@@ -99,6 +99,22 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
 router.patch("/api/update/reactions/comments", async (req, res) => {
   try {
+    if (!req.body.id) throw new Error("No blog to patch.");
+
+    const { id, email } = req.body;
+
+    const blog = await Blog.findOne({ _id: id });
+
+    if (!blog) throw new Error(blog);
+
+    const like = await Like.findOne({ blogID: id });
+
+    if (!like) throw new Error(like);
+
+    let { likes } = like;
+
+    if (likes === (null || undefined))
+      throw new Error("error when fetching the blog likes.");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
