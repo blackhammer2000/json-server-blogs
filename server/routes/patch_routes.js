@@ -78,10 +78,10 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
 
     if (hasLiked) {
       likes = likes.filter((like) => {
-        if (like.email !== email) return like;
+        if (like.userID !== userID) return like;
       });
     } else {
-      const newLike = { email };
+      const newLike = { userID };
       likes = likes.push(newLike);
     }
 
