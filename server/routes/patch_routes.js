@@ -81,7 +81,7 @@ router.patch("/api/update/reactions/likes", async (req, res) => {
         if (like.userID !== userID) return like;
       });
     } else {
-      const newLike = { userID };
+      const newLike = { userID, likeID: crypto.randomUUID() };
       likes = likes.push(newLike);
     }
 
