@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
+const Like = require("../schemas/like");
 const Blog = require("../schemas/blog");
 const Comment = require("../schemas/comment");
-const Like = require("../schemas/like");
-const { route } = require("./get_routes");
+const crypto = require("node:crypto");
 
 const { validateBlogBody } = require("./helpers/validators");
 
@@ -118,6 +118,15 @@ router.patch("/api/update/reactions/comments", async (req, res) => {
 
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
+
+    const newComment = {
+      commentID: crypto.randomUUID(),
+      userID: user._id,
+      comment: userComment,
+      replies: [],
+    };
+
+    comments.push(newComment);
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
