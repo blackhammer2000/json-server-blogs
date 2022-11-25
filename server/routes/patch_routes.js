@@ -182,7 +182,8 @@ router.patch("/api/reactions/comments/create/reply", async (req, res) => {
       if (comment.userID === userID && comment.commentID === commentID) {
         const { comment_replies } = comment;
 
-        if (comment_replies === (null || undefined)) return;
+        if (comment_replies === (null || undefined))
+          throw new Error("Error when reading the comment's replies.");
 
         const comment_reply = {
           userID,
