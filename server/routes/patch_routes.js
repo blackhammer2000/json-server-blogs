@@ -156,7 +156,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
   }
 });
 
-router.patch("/api/reactions/comments/create/reply", async (req, res) => {
+router.patch("/api/reactions/comment/create/reply", async (req, res) => {
   try {
     const { blogID, userID, commentID, commentReply } = req.body;
 
