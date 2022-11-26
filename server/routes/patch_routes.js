@@ -210,9 +210,9 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
     if (!selectedComment)
       throw new Error("Error when updating your comment reply.");
 
-    const createComment = await Comment.findOneAndUpdate(
+    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
       { blogID: blog._id },
-      { $set: { comments: updatedComments } }
+      { $set: { comments: updatedCommentAndReplies } }
     );
 
     if (!createComment) throw new Error(createComment);
