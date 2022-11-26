@@ -217,4 +217,11 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
     if (err.message) res.status(500).json({ error: err.message });
   }
 });
+
+router.patch("/api/reactions/comment/update/reply", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
 module.exports = router;
