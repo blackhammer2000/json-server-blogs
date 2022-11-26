@@ -129,6 +129,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
     const newComment = {
       userID: user._id,
       commentID: crypto.randomUUID(),
+      comment_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
       comment: userComment,
       comment_replies: [],
     };
@@ -188,6 +189,7 @@ router.patch("/api/reactions/comments/create/reply", async (req, res) => {
         const comment_reply = {
           userID,
           replyID: crypto.randomUUID(),
+          comment_reply_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
           comment_reply: commentReply,
         };
 
