@@ -274,17 +274,6 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
           }
         });
 
-        // const comment_reply = {
-        //   userID,
-        //   replyID: crypto.randomUUID(),
-        //   comment_reply_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
-        //   comment_reply: commentReply,
-        // };
-
-        // comment_replies.push(comment_reply);
-
-        // selectedComment = !selectedComment;
-
         return { ...comment, comment_replies: updatedCommentReplies };
       } else {
         return comment;
