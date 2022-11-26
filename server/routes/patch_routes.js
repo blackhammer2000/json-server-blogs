@@ -253,9 +253,13 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
         if (comment_replies === (null || undefined))
           throw new Error("Error when reading the comment's replies.");
 
+        selectedComment = !selectedComment;
+
         const updatedCommentReplies = comment_replies.map((reply) => {
           if (reply.replyID === replyID) {
             reply.comment_reply = commentReplyUpdate;
+
+            selectedCommentReply = !selectedCommentReply;
 
             return reply;
           } else {
@@ -274,7 +278,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
 
         // selectedComment = !selectedComment;
 
-        return { ...comment, comment_replies };
+        return { ...comment, comment_replies: updatedCommentReplies };
       } else {
         return comment;
       }
