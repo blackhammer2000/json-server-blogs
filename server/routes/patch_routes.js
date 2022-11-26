@@ -220,7 +220,7 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/update/reply", async (req, res) => {
   try {
-    const { blogID, userID, commentID, commentReply } = req.body;
+    const { blogID, userID, commentID, replyID, commentReplyUpdate } = req.body;
 
     if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
 
