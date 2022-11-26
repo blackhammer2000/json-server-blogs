@@ -244,6 +244,41 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     let selectedComment = false;
+    let selectedCommentReply = false;
+
+    const updatedComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        const { comment_replies } = comment;
+
+        if (comment_replies === (null || undefined))
+          throw new Error("Error when reading the comment's replies.");
+
+        const updatedCommentReplies = comment_replies.map((reply) => {
+          if (reply.replyID === replyID) {
+            reply.comment_reply = commentReplyUpdate;
+
+            return reply;
+          } else {
+            return reply;
+          }
+        });
+
+        // const comment_reply = {
+        //   userID,
+        //   replyID: crypto.randomUUID(),
+        //   comment_reply_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
+        //   comment_reply: commentReply,
+        // };
+
+        // comment_replies.push(comment_reply);
+
+        // selectedComment = !selectedComment;
+
+        return { ...comment, comment_replies };
+      } else {
+        return comment;
+      }
+    });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
