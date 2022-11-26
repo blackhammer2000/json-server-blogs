@@ -215,7 +215,7 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
       { $set: { comments: updatedCommentAndReplies } }
     );
 
-    if (!createComment) throw new Error(createComment);
+    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
 
     res
       .status(203)
