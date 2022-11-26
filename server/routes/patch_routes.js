@@ -279,6 +279,20 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
         return comment;
       }
     });
+
+    if (!selectedComment || !selectedCommentReply)
+      throw new Error("Error when updating your comment reply.");
+
+    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: updatedComments } }
+    );
+
+    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
+
+    res
+      .status(203)
+      .json({ comments: updatedComments, message: "comment reply updated" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
