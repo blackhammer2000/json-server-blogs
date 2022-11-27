@@ -362,6 +362,8 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
               comment_reply_likes.push(newReplyLike);
             }
 
+            reply.comment_reply_likes = comment_reply_likes;
+
             return reply;
           } else {
             return reply;
