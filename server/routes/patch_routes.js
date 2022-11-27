@@ -185,7 +185,7 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
     const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
-        if (!comment.comment) throw new Error("Cannot update blank error.");
+        if (!comment.comment) throw new Error("Cannot update blank comment.");
 
         comment.comment = commentUpdate;
 
@@ -196,6 +196,18 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
         return comment;
       }
     });
+
+    if (!selectedComment)
+      throw new Error("Error when updating your comment reply.");
+
+    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: updatedComments } }
+    );
+
+    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
+
+    res.status(203);
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
