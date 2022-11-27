@@ -220,7 +220,8 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
   try {
     const { blogID, userID, commentID, likeID } = req.body;
 
-    if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
+    if (!blogID || !userID || !commentID || !likeID)
+      throw new Error("Cannot proceed with the request.");
 
     if (!userComment) throw new Error("No comment was submitted...");
 
@@ -294,12 +295,10 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
 
     if (!updateComment) throw new Error(updateComment);
 
-    res
-      .status(203)
-      .json({
-        likes: newCommentLikes,
-        message: `${hasLiked ? "unliked" : "liked"}`,
-      });
+    res.status(203).json({
+      likes: newCommentLikes,
+      message: `${hasLiked ? "unliked" : "liked"}`,
+    });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
