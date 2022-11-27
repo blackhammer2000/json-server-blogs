@@ -354,12 +354,12 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
                 if (like.userID !== userID) return like;
               });
             } else {
-              const newLike = {
+              const newReplyLike = {
                 userID,
                 likeID: crypto.randomUUID(),
                 like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
               };
-              likes.push(newLike);
+              comment_reply_likes.push(newReplyLike);
             }
 
             return reply;
