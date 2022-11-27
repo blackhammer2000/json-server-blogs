@@ -323,6 +323,49 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
 
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
+
+    let selectedComment = false;
+    let selectedCommentReply = false;
+
+    const updatedComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        const { comment_replies } = comment;
+
+        if (comment_replies === (null || undefined))
+          throw new Error("Error when reading the comment's replies.");
+
+        selectedComment = !selectedComment;
+
+        const updatedCommentReplies = comment_replies.map((reply) => {
+          if (reply.replyID === replyID && reply.userID === userID) {
+            const { comment_reply_likes } = reply;
+
+            if (comment_reply_likes === (null || undefined))
+              throw new Error("Error when reading the comment reply likes.");
+
+            selectedCommentReply = !selectedCommentReply;
+
+            return reply;
+          } else {
+            return reply;
+          }
+        });
+
+        return { ...comment, comment_replies: updatedCommentReplies };
+      } else {
+        return comment;
+      }
+    });
+
+    if (!selectedComment || !selectedCommentReply)
+      throw new Error("Error when updating your comment reply.");
+
+    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: updatedComments } }
+    );
+
+    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
