@@ -223,8 +223,6 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
     if (!blogID || !userID || !commentID || !likeID)
       throw new Error("Cannot proceed with the request.");
 
-    if (!userComment) throw new Error("No comment was submitted...");
-
     const user = await User.findOne({ _id: userID });
 
     if (!user) throw new Error("please sign up to react to any of the blogs.");
@@ -308,9 +306,10 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
   try {
     const { blogID, userID, commentID, commentReply } = req.body;
 
-    if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
+    if (!blogID || !userID || !commentID)
+      throw new Error("Cannot proceed with the request.");
 
-    if (!userComment) throw new Error("No comment was submitted...");
+    if (!commentReply) throw new Error("No comment was submitted...");
 
     const user = await User.findOne({ _id: userID });
 
