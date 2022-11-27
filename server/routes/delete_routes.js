@@ -95,6 +95,29 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
 
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
+
+    let selectedComment = false;
+
+    const updatedComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        const { comment_replies } = comment;
+
+        if (comment_replies === (null || undefined))
+          throw new Error("Error when reading the comment's replies.");
+
+        selectedComment = !selectedComment;
+
+        const updatedCommentReplies = comment_replies.filter((reply) => {
+          if (reply.replyID !== replyID) return reply;
+        });
+
+        comment.comment_replies = updatedCommentReplies;
+
+        return comment;
+      } else {
+        return comment;
+      }
+    });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
