@@ -343,7 +343,11 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             if (comment_reply_likes === (null || undefined))
               throw new Error("Error when reading the comment reply likes.");
 
-            selectedCommentReply = !selectedCommentReply;
+            const hasLiked = comment_reply_likes.find((like) => {
+              if (like.userID === userID) return like;
+            });
+
+            letbselectedCommentReply = !selectedCommentReply;
 
             return reply;
           } else {
