@@ -346,12 +346,14 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             selectedCommentReply = !selectedCommentReply;
 
             const hasLiked = comment_reply_likes.find((like) => {
-              if (like.userID === userID) return like;
+              if (like.userID === userID && like.replyLikeID === replyLikeID)
+                return like;
             });
 
             if (hasLiked) {
               comment_reply_likes = comment_reply_likes.filter((like) => {
-                if (like.userID !== userID) return like;
+                if (like.userID !== userID && like.replyLikeID !== replyLikeID)
+                  return like;
               });
             } else {
               const newReplyLike = {
