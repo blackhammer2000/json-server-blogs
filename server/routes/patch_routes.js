@@ -261,7 +261,9 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
 
         selectedComment = !selectedComment;
 
-        return { ...comment, comment_replies };
+        comment.comment_replies = comment_replies;
+
+        return comment;
       } else {
         return comment;
       }
@@ -334,7 +336,9 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
           }
         });
 
-        return { ...comment, comment_replies: updatedCommentReplies };
+        comment.comment_replies = updatedCommentReplies;
+
+        return comment;
       } else {
         return comment;
       }
