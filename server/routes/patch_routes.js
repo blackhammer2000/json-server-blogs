@@ -242,6 +242,24 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     let selectedComment = false;
+
+    const updatedComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        if (!comment.hasOwnProperty("comment_likes"))
+          throw new Error("Cannot updating the like for this comment.");
+
+        comment.comment = commentUpdate;
+
+        selectedComment = !selectedComment;
+
+        return comment;
+      } else {
+        return comment;
+      }
+    });
+
+    if (!selectedComment)
+      throw new Error("Error when updating your comment reply.");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
