@@ -299,7 +299,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
   }
 });
 
-router.patch("/api/reactions/like/comment", async (req, res) => {
+router.patch("/api/reactions/comment/reply/like", async (req, res) => {
   try {
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
