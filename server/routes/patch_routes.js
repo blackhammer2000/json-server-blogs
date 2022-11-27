@@ -259,6 +259,24 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
           if (like.userID === userID && like.likeID === likeID) return like;
         });
 
+        if (hasLiked) {
+          comment_likes = comment_likes.filter((like) => {
+            if (like.userID !== userID && like.likeID !== likeID) return like;
+          });
+        } else {
+          const newCommentLike = {
+            userID,
+            commentLikeID: crypto.randomUUID(),
+            comment_like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
+          };
+
+          comment_likes.push(newCommentLike);
+        }
+
+        newLikes = comment_likes.length;
+
+        reply.comment_likes = comment_likes;
+
         return comment;
       } else {
         return comment;
