@@ -255,6 +255,11 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
 
         selectedComment = !selectedComment;
 
+        const hasLiked = comment_reply_likes.find((like) => {
+          if (like.userID === userID && like.replyLikeID === replyLikeID)
+            return like;
+        });
+
         return comment;
       } else {
         return comment;
