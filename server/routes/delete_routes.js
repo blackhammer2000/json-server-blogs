@@ -74,6 +74,27 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
 
 router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
   try {
+    const { blogID, userID, commentID, replyID } = req.body;
+
+    if (!blogID || !userID || !commentID)
+      throw new Error("Cannot proceed with the request.");
+
+    const user = await User.findOne({ _id: userID });
+
+    if (!user) throw new Error("please sign up to react to any of the blogs.");
+
+    const blog = await Blog.findOne({ _id: blogID });
+
+    if (!blog) throw new Error(blog);
+
+    const comment = await Comment.findOne({ blogID: blog._id });
+
+    if (!comment) throw new Error(comment);
+
+    let { comments } = comment;
+
+    if (comments === (null || undefined))
+      throw new Error("error when fetching the blog likes.");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
