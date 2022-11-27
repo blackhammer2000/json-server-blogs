@@ -112,7 +112,10 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
           if (reply.replyID !== replyID) return reply;
         });
 
-        if (comment_replies.length <= updatedCommentReplies)
+        if (
+          comment_replies.length <= updatedCommentReplies ||
+          comment_replies.length - updatedComments.length !== 1
+        )
           throw new Error("Error when deleting the reply.");
 
         selectedCommentReply = !selectedCommentReply;
