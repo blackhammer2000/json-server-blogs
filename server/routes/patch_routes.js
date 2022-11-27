@@ -161,9 +161,10 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
   try {
     const { blogID, userID, commentID, commentUpdate } = req.body;
 
-    if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
+    if (!blogID || !userID || !commentID)
+      throw new Error("Cannot proceed with the request.");
 
-    if (!userComment) throw new Error("No comment was submitted...");
+    if (!commentUpdate) throw new Error("No comment was submitted...");
 
     const user = await User.findOne({ _id: userID });
 
