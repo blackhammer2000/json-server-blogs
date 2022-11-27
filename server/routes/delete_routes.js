@@ -97,6 +97,7 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     let selectedComment = false;
+    let selectedCommentReply = false;
 
     const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
@@ -110,6 +111,11 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
         const updatedCommentReplies = comment_replies.filter((reply) => {
           if (reply.replyID !== replyID) return reply;
         });
+
+        if (comment_replies.length <= updatedCommentReplies)
+          throw new Error("Error when deleting the reply.");
+
+        selectedCommentReply = !selectedCommentReply;
 
         comment.comment_replies = updatedCommentReplies;
 
