@@ -285,7 +285,21 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
     });
 
     if (!selectedComment)
-      throw new Error("Error when updating your comment reply.");
+      throw new Error("Error when updating your comment like.");
+
+    const updateComment = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: updatedComments } }
+    );
+
+    if (!updateComment) throw new Error(updateComment);
+
+    res
+      .status(203)
+      .json({
+        likes: newCommentLikes,
+        message: `${hasLiked ? "unliked" : "liked"}`,
+      });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
