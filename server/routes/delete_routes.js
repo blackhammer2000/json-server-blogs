@@ -31,8 +31,6 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
 
-    if (!commentUpdate) throw new Error("No comment was submitted...");
-
     const user = await User.findOne({ _id: userID });
 
     if (!user) throw new Error("please sign up to react to any of the blogs.");
