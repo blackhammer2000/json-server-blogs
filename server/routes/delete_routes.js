@@ -19,4 +19,11 @@ router.delete("/api/delete/blog", validateDeleteBody, async (req, res) => {
   }
 });
 
+router.delete("/api/reactions/delete/comment", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
