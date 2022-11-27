@@ -356,9 +356,10 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             } else {
               const newReplyLike = {
                 userID,
-                likeID: crypto.randomUUID(),
-                like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
+                replyLikeID: crypto.randomUUID(),
+                reply_like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
               };
+
               comment_reply_likes.push(newReplyLike);
             }
 
