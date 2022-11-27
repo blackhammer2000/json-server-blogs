@@ -57,13 +57,18 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
 
     const selectedComment = comments.length > updatedComments ? true : false;
 
-    if (!selectedComment)
-      throw new Error("Error when updating your comment reply.");
+    if (!selectedComment) throw new Error("Error when deleting your comment .");
 
     const updateComment = await Comment.findOneAndUpdate(
       { blogID: blog._id },
       { $set: { comments: updatedComments } }
     );
+
+    if (!updateComment) throw new Error(updateComment);
+
+    res
+      .status(203)
+      .json({ comments: updatedComments, message: "comment updated" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
