@@ -181,8 +181,19 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
 
-      let selectedComment = false;
+    let selectedComment = false;
 
+    const updatedComments = comments.map((comment) => {
+      if (comment.userID === userID && comment.commentID === commentID) {
+        if (!comment.comment) throw new Error("Cannot update blank error.");
+
+        comment.comment = commentUpdate;
+
+        return comment;
+      } else {
+        return comment;
+      }
+    });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
