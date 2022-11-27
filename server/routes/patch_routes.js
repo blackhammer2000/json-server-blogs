@@ -373,7 +373,9 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
           }
         });
 
-        return { ...comment, comment_replies: updatedCommentReplies };
+        comment.comment_replies = updatedCommentReplies;
+
+        return comment;
       } else {
         return comment;
       }
@@ -382,12 +384,13 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
     if (!selectedComment || !selectedCommentReply)
       throw new Error("Error when updating your comment reply.");
 
-    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
+    const updatedCommentAndRepliesLikes = await Comment.findOneAndUpdate(
       { blogID: blog._id },
       { $set: { comments: updatedComments } }
     );
 
-    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
+    if (!updatedCommentAndRepliesLikes)
+      throw new Error(updatedCommentAndRepliesLikes);
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
