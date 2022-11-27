@@ -189,6 +189,8 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
         comment.comment = commentUpdate;
 
+        selectedComment = !selectedComment;
+
         return comment;
       } else {
         return comment;
