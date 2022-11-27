@@ -1,12 +1,12 @@
 const router = require("express").Router();
 
+const User = require("../schemas/user");
 const Like = require("../schemas/like");
 const Blog = require("../schemas/blog");
 const Comment = require("../schemas/comment");
 const crypto = require("node:crypto");
 
-const { validateBlogBody } = require("./helpers/validators");
-const User = require("../schemas/user");
+// const { validateBlogBody } = require("./helpers/validators");
 
 router.patch("/api/update/blog", async (req, res) => {
   try {
