@@ -158,7 +158,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
 
 router.patch("/api/reactions/edit/comment", async (req, res) => {
   try {
-    const { blogID, userID, commentID, commentReply } = req.body;
+    const { blogID, userID, commentID, commentUpdate } = req.body;
 
     if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
 
@@ -200,12 +200,12 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
     if (!selectedComment)
       throw new Error("Error when updating your comment reply.");
 
-    const updatedCommentAndReplies = await Comment.findOneAndUpdate(
+    const updateComment = await Comment.findOneAndUpdate(
       { blogID: blog._id },
       { $set: { comments: updatedComments } }
     );
 
-    if (!updatedCommentAndReplies) throw new Error(updatedCommentAndReplies);
+    if (!updateComment) throw new Error(updateComment);
 
     res
       .status(203)
