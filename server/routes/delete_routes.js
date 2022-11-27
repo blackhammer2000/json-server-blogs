@@ -128,7 +128,7 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
       }
     });
 
-    if (!updateComments) throw new Error(updateComments);
+    if (!updatedComments) throw new Error(updatedComments);
 
     res
       .status(203)
