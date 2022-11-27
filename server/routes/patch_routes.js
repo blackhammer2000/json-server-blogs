@@ -242,6 +242,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
       throw new Error("error when fetching the blog likes.");
 
     let selectedComment = false;
+    let newCommentLikes = 0;
 
     const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
@@ -273,9 +274,9 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
           comment_likes.push(newCommentLike);
         }
 
-        newLikes = comment_likes.length;
+        newCommentLikes = comment_likes.length;
 
-        reply.comment_likes = comment_likes;
+        comment.comment_likes = comment_likes;
 
         return comment;
       } else {
