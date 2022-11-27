@@ -26,7 +26,7 @@ router.delete("/api/delete/blog", validateDeleteBody, async (req, res) => {
 
 router.delete("/api/reactions/delete/comment", async (req, res) => {
   try {
-    const { blogID, userID, commentID, commentUpdate } = req.body;
+    const { blogID, userID, commentID } = req.body;
 
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
@@ -69,6 +69,13 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
     res
       .status(203)
       .json({ comments: updatedComments, message: "comment deleted" });
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
+router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
+  try {
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
