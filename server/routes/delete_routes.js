@@ -50,12 +50,20 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
 
-    let selectedComment = false;
-
     const updatedComments = comments.filter((comment) => {
       if (comment.userID !== userID && comment.commentID !== commentID)
         return comment;
     });
+
+    const selectedComment = comments.length > updatedComments ? true : false;
+
+    if (!selectedComment)
+      throw new Error("Error when updating your comment reply.");
+
+    const updateComment = await Comment.findOneAndUpdate(
+      { blogID: blog._id },
+      { $set: { comments: updatedComments } }
+    );
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
