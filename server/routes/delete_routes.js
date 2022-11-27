@@ -1,5 +1,10 @@
 const router = require("express").Router();
+
 const Blog = require("../schemas/blog");
+const User = require("../schemas/user");
+const Like = require("../schemas/like");
+const Comment = require("../schemas/comment");
+
 const { validateDeleteBody } = require("./helpers/validators");
 const { ObjectId } = require("mongodb");
 
