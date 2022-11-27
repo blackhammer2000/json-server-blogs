@@ -68,7 +68,7 @@ router.delete("/api/reactions/delete/comment", async (req, res) => {
 
     res
       .status(203)
-      .json({ comments: updatedComments, message: "comment updated" });
+      .json({ comments: updatedComments, message: "comment deleted" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
