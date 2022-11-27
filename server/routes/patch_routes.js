@@ -326,7 +326,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
 
     let selectedComment = false;
     let selectedCommentReply = false;
-    let newLikesLength = 0;
+    let newLikes = 0;
 
     const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
@@ -366,6 +366,8 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
               comment_reply_likes.push(newReplyLike);
             }
 
+            newLikes = comment_reply_likes.length;
+
             reply.comment_reply_likes = comment_reply_likes;
 
             return reply;
@@ -394,7 +396,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
       throw new Error(updatedCommentAndRepliesLikes);
 
     res.status(203).json({
-      replyLikes: likes.length,
+      replyLikes: newLikes,
       message: `${hasLiked ? "unliked" : "liked"}`,
     });
   } catch (err) {
