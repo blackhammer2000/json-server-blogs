@@ -338,7 +338,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
 
         const updatedCommentReplies = comment_replies.map((reply) => {
           if (reply.replyID === replyID && reply.userID === userID) {
-            const { comment_reply_likes } = reply;
+            let { comment_reply_likes } = reply;
 
             if (comment_reply_likes === (null || undefined))
               throw new Error("Error when reading the comment reply likes.");
@@ -348,6 +348,19 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             const hasLiked = comment_reply_likes.find((like) => {
               if (like.userID === userID) return like;
             });
+
+            if (hasLiked) {
+              comment_reply_likes = comment_reply_likes.filter((like) => {
+                if (like.userID !== userID) return like;
+              });
+            } else {
+              const newLike = {
+                userID,
+                likeID: crypto.randomUUID(),
+                like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
+              };
+              likes.push(newLike);
+            }
 
             return reply;
           } else {
