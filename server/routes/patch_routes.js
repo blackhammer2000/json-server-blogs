@@ -216,6 +216,13 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
   }
 });
 
+router.patch("/api/reactions/comment/like", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
 router.patch("/api/reactions/comment/create/reply", async (req, res) => {
   try {
     const { blogID, userID, commentID, commentReply } = req.body;
