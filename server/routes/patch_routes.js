@@ -218,7 +218,7 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
 router.patch("/api/reactions/comment/like", async (req, res) => {
   try {
-    const { blogID, userID, commentID, commentUpdate } = req.body;
+    const { blogID, userID, commentID } = req.body;
 
     if (!blogID || !userID) throw new Error("Cannot proceed with the request.");
 
