@@ -135,6 +135,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
       commentID: crypto.randomUUID(),
       comment_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
       comment: userComment,
+      comment_likes: [],
       comment_replies: [],
     };
 
