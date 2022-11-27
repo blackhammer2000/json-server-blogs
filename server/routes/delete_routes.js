@@ -127,6 +127,12 @@ router.delete("/api/reactions/delete/comment/reply", async (req, res) => {
         return comment;
       }
     });
+
+    if (!updateComments) throw new Error(updateComments);
+
+    res
+      .status(203)
+      .json({ comments: updatedComments, message: "comment reply deleted." });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
