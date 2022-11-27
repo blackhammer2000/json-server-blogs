@@ -180,6 +180,9 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
     if (comments === (null || undefined))
       throw new Error("error when fetching the blog likes.");
+
+      let selectedComment = false;
+
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
