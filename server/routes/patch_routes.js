@@ -385,9 +385,9 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/update/reply", async (req, res) => {
   try {
-    const { blogID, userID, commentID, replyID, commentReplyUpdate } = req.body;
+    const { blogID, userID, commentID, commentReplyUpdate } = req.body;
 
-    if (!blogID || !userID || !commentID || !replyID)
+    if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
 
     if (!commentReplyUpdate) throw new Error("No reply was submitted...");
@@ -422,7 +422,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
         selectedComment = !selectedComment;
 
         const updatedCommentReplies = comment_replies.map((reply) => {
-          if (reply.replyID === replyID) {
+          if (reply.userID === userID) {
             reply.comment_reply = commentReplyUpdate;
 
             selectedCommentReply = !selectedCommentReply;
