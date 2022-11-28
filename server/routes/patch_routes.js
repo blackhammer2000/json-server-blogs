@@ -221,7 +221,7 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
 router.patch("/api/reactions/comment/like", async (req, res) => {
   try {
-    const { blogID, userID, commentID, likeID } = req.body;
+    const { blogID, userID, commentID, commentLikeID } = req.body;
 
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
@@ -259,14 +259,18 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         selectedComment = !selectedComment;
 
         const hasLiked = comment_likes.find((like) => {
-          if (likeID === (null || undefined)) return null;
+          if (commentLikeID === (null || undefined)) return null;
 
-          if (like.userID === userID && like.likeID === likeID) return like;
+          if (like.userID === userID && like.commentLikeID === commentLikeID)
+            return like;
         });
+
+        console.log(hasLiked);
 
         if (hasLiked) {
           comment_likes = comment_likes.filter((like) => {
-            if (like.userID !== userID && like.likeID !== likeID) return like;
+            if (like.userID !== userID && like.commentLikeID !== commentLikeID)
+              return like;
           });
         } else {
           const newCommentLike = {
@@ -300,7 +304,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
 
     res.status(203).json({
       likes: newCommentLikes,
-      message: `${hasLiked ? "unliked" : "liked"}`,
+      message: `${newCommentLikes ? "unliked" : "liked"}`,
     });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
