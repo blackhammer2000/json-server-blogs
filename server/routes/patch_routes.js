@@ -36,7 +36,7 @@ router.patch("/api/update/blog", async (req, res) => {
 
     console.log(newData);
 
-    if (Object.keys(newData))
+    if (Object.keys(newData).length)
       throw new Error("blog update error has occurred.");
 
     const blogUpdate = await Blog.findOneAndUpdate({ _id: id }, { $set: blog });
