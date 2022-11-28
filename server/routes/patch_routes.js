@@ -223,7 +223,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
   try {
     const { blogID, userID, commentID, likeID } = req.body;
 
-    if (!blogID || !userID || !commentID || !likeID)
+    if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
 
     const user = await User.findOne({ _id: userID });
@@ -251,7 +251,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         if (!comment.hasOwnProperty("comment_likes"))
           throw new Error("Cannot updating the like for this comment.");
 
-        const { comment_likes } = comment;
+        let { comment_likes } = comment;
 
         if (comment_likes === (null || undefined))
           throw new Error("Error when liking the comment.");
