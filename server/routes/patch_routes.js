@@ -461,9 +461,9 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/reply/like", async (req, res) => {
   try {
-    const { blogID, userID, commentID, replyID } = req.body;
+    const { blogID, userID, commentID } = req.body;
 
-    if (!blogID || !userID || !commentID || !replyID)
+    if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
 
     const user = await User.findOne({ _id: userID });
@@ -497,7 +497,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
         selectedComment = !selectedComment;
 
         const updatedCommentReplies = comment_replies.map((reply) => {
-          if (reply.replyID === replyID && reply.userID === userID) {
+          if (reply.userID === userID) {
             let { comment_reply_likes } = reply;
 
             if (comment_reply_likes === (null || undefined))
