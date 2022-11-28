@@ -251,7 +251,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         if (!comment.hasOwnProperty("comment_likes"))
           throw new Error("Cannot update the like for this comment.");
 
-        console.log(comment);
+        // console.log(comment);
 
         let { comment_likes } = comment;
 
@@ -263,16 +263,14 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         const hasLiked = comment_likes.find((like) => {
           if (commentLikeID === (null || undefined)) return null;
 
-          if (like.userID === userID && like.commentLikeID === commentLikeID)
-            return like;
+          if (like.userID === userID) return like;
         });
 
         console.log(hasLiked);
 
         if (hasLiked) {
           comment_likes = comment_likes.filter((like) => {
-            if (like.userID !== userID && like.commentLikeID !== commentLikeID)
-              return like;
+            if (like.userID !== userID) return like;
           });
         } else {
           const newCommentLike = {
