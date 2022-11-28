@@ -30,6 +30,9 @@ router.post("/api/register/user", async (req, res) => {
 
 router.post("/api/create/blog", validateBlogBody, async (req, res) => {
   try {
+
+    req.body.date_created = `${new Date().toDateString() | ${new Date().toLocaleTimeString()}}`;
+    
     const blog = await Blog.create(req.body);
 
     if (!blog) throw new Error(blog);
