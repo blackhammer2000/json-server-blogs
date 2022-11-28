@@ -259,6 +259,8 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         selectedComment = !selectedComment;
 
         const hasLiked = comment_likes.find((like) => {
+          if (likeID === (null || undefined)) return null;
+
           if (like.userID === userID && like.likeID === likeID) return like;
         });
 
