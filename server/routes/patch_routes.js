@@ -191,7 +191,6 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
     const updatedComments = comments.map((comment) => {
       if (comment.userID === userID && comment.commentID === commentID) {
         if (!comment.comment) throw new Error("Cannot update blank comment.");
-        console.log(comment);
         comment.comment = commentUpdate;
 
         selectedComment = true;
@@ -201,8 +200,6 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
         return comment;
       }
     });
-
-    console.log(updatedComments);
 
     if (!selectedComment)
       throw new Error("Error when updating your comment reply.");
