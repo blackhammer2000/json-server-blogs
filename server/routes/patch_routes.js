@@ -250,7 +250,9 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
       if (comment.userID === userID && comment.commentID === commentID) {
         if (!comment.hasOwnProperty("comment_likes"))
           throw new Error("Cannot update the like for this comment.");
+
         console.log(comment);
+
         let { comment_likes } = comment;
 
         if (comment_likes === (null || undefined))
