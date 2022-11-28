@@ -26,12 +26,15 @@ router.patch("/api/update/blog", async (req, res) => {
     }
 
     for (const property in newData) {
-      if (!blog[property] || !blog.hasOwnProperty(property))
+      console.log(blog[property]);
+      if (blog[property] === (null || undefined))
         throw new Error("Invalid prop update");
 
       blog[property] = newData[property];
       delete newData[property];
     }
+
+    console.log(newData);
 
     if (Object.keys(newData))
       throw new Error("blog update error has occurred.");
