@@ -308,7 +308,7 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
     if (!updateComment) throw new Error(updateComment);
 
     res.status(203).json({
-      likes: newCommentLikes,
+      commentLikes: newCommentLikes,
       message: `${liked ? "unliked" : "liked"}`,
     });
   } catch (err) {
