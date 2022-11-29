@@ -286,7 +286,9 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
         }
 
         newCommentLikes = comment_likes.length;
+
         liked = hasLiked ? true : false;
+
         comment.comment_likes = comment_likes;
 
         return comment;
@@ -465,7 +467,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/reply/like", async (req, res) => {
   try {
-    const { blogID, userID, commentID, replyID, replyLikeID } = req.body;
+    const { blogID, userID, commentID, replyID } = req.body;
 
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
@@ -511,8 +513,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             selectedCommentReply = !selectedCommentReply;
 
             const hasLiked = comment_reply_likes.find((like) => {
-              if (like.userID === userID && like.replyLikeID === replyLikeID)
-                return like;
+              if (like.userID === userID) return like;
             });
 
             if (hasLiked) {
