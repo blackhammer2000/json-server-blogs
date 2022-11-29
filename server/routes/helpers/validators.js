@@ -8,12 +8,6 @@ const validateBlogBody = async (req, res, next) => {
 
     validBody.date = new Date().toLocaleDateString();
 
-    validBody.reactions = {
-      likes: [],
-      comments: [],
-      shares: [],
-    };
-
     req.body = validBody;
 
     next();
