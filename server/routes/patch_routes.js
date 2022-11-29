@@ -47,7 +47,7 @@ router.patch("/api/update/blog", async (req, res) => {
     if (!blogUpdate) throw new Error(blogUpdate);
 
     res.json({
-      message: `blog ${id} updated successfully`,
+      message: `blog ...${blogID.slice(-6)} updated successfully`,
       editedBlog: blog,
     });
   } catch (err) {
