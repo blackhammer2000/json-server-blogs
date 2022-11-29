@@ -9,7 +9,7 @@ const blogValidator = joi.object({
 });
 
 const deleteValidator = joi.object({
-  id: joi.string().required(),
+  blogID: joi.string().required(),
 });
 
 module.exports = { blogValidator, deleteValidator };
