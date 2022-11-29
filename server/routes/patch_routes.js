@@ -20,8 +20,13 @@ router.patch("/api/update/blog", async (req, res) => {
 
     if (!blog) throw new Error(blog);
 
-    if (newData.hasOwnProperty("reactions")) {
+    if (
+      newData.hasOwnProperty(
+        "reactions" || "_id" || "ID" || "_ID" || "id" || "Id" || "iD"
+      )
+    ) {
       delete newData.reactions;
+      delete newData._id;
       throw new Error("Cannot update reactions");
     }
 
