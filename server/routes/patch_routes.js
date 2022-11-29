@@ -385,7 +385,7 @@ router.patch("/api/reactions/comment/create/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/update/reply", async (req, res) => {
   try {
-    const { blogID, userID, commentID, commentReplyUpdate } = req.body;
+    const { blogID, userID, commentID, replyID, commentReplyUpdate } = req.body;
 
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
@@ -422,7 +422,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
         selectedComment = !selectedComment;
 
         const updatedCommentReplies = comment_replies.map((reply) => {
-          if (reply.userID === userID) {
+          if (reply.userID === userID && reply.replyID === replyID) {
             reply.comment_reply = commentReplyUpdate;
 
             selectedCommentReply = !selectedCommentReply;
@@ -461,7 +461,7 @@ router.patch("/api/reactions/comment/update/reply", async (req, res) => {
 
 router.patch("/api/reactions/comment/reply/like", async (req, res) => {
   try {
-    const { blogID, userID, commentID } = req.body;
+    const { blogID, userID, commentID, replyID, replyLikeID } = req.body;
 
     if (!blogID || !userID || !commentID)
       throw new Error("Cannot proceed with the request.");
@@ -498,7 +498,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
         selectedComment = !selectedComment;
 
         const updatedCommentReplies = comment_replies.map((reply) => {
-          if (reply.userID === userID) {
+          if (reply.userID === userID && reply.replyID === replyID) {
             let { comment_reply_likes } = reply;
 
             if (comment_reply_likes === (null || undefined))
@@ -507,12 +507,14 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
             selectedCommentReply = !selectedCommentReply;
 
             const hasLiked = comment_reply_likes.find((like) => {
-              if (like.userID === userID) return like;
+              if (like.userID === userID && like.replyLikeID === replyLikeID)
+                return like;
             });
 
             if (hasLiked) {
               comment_reply_likes = comment_reply_likes.filter((like) => {
-                if (like.userID !== userID) return like;
+                if (like.userID !== userID && like.replyLikeID !== replyLikeID)
+                  return like;
               });
             } else {
               const newReplyLike = {
