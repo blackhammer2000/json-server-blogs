@@ -48,7 +48,7 @@ router.patch("/api/update/blog", async (req, res) => {
 
     res.json({
       message: `blog ${id} updated successfully`,
-      response_status: "success",
+      editedBlog: blog,
     });
   } catch (err) {
     res.json({ error: err.message, response_status: "failed" });
@@ -104,7 +104,7 @@ router.patch("/api/reactions/update/likes", async (req, res) => {
     if (!updateLikes) throw new Error(updateLikes);
 
     res.status(203).json({
-      likes: likes.length,
+      blogLikes: likes.length,
       message: `${hasLiked ? "unliked" : "liked"}`,
     });
   } catch (err) {
@@ -157,7 +157,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
 
     res.status(201).json({
       message: `Comment posted`,
-      comments,
+      blogComments: comments,
     });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
