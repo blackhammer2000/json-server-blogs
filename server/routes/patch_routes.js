@@ -92,6 +92,7 @@ router.patch("/api/reactions/update/likes", async (req, res) => {
         likeID: crypto.randomUUID(),
         like_time: `${new Date().toDateString()} | ${new Date().toLocaleTimeString()}`,
       };
+
       likes.push(newLike);
     }
 
