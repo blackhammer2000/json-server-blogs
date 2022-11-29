@@ -96,12 +96,12 @@ router.patch("/api/reactions/update/likes", async (req, res) => {
       likes.push(newLike);
     }
 
-    const updateLikes = await Like.findOneAndUpdate(
+    const updateBlogLikes = await Like.findOneAndUpdate(
       { _id: like._id },
       { $set: { likes: likes } }
     );
 
-    if (!updateLikes) throw new Error(updateLikes);
+    if (!updateBlogLikes) throw new Error(updateBlogLikes);
 
     res.status(203).json({
       blogLikes: likes.length,
