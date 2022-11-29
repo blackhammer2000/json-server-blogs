@@ -5,7 +5,6 @@ const blogValidator = joi.object({
   description: joi.string().required(),
   author: joi.string().required(),
   date: joi.string().required(),
-  reactions: joi.object().required(),
 });
 
 const deleteValidator = joi.object({
