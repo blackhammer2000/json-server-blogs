@@ -39,8 +39,6 @@ router.patch("/api/update/blog", async (req, res) => {
       delete newData[property];
     }
 
-    console.log(newData);
-
     if (Object.keys(newData).length)
       throw new Error("blog update error has occurred.");
 
