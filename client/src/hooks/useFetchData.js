@@ -14,7 +14,9 @@ export function useFetchData() {
       if (userInfo) {
         (async function () {
           try {
-            const response = await fetch("http://localhost:6000/blogs");
+            const response = await fetch(
+              "http://localhost:6000/api/read/blogs"
+            );
             if (!response.ok) {
               throw new Error("Server Error, Could not find resources...");
             }

@@ -1,5 +1,6 @@
 {
   "name": "blogs-server",
+  "proxy": "http://localhost:6000",
   "version": "1.0.0",
   "description": "server for blogs ",
   "main": "index.js",
