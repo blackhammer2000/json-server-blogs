@@ -269,8 +269,6 @@ router.patch("/api/reactions/comment/like", async (req, res) => {
           if (like.userID === userID) return like;
         });
 
-        console.log(hasLiked);
-
         if (hasLiked) {
           comment_likes = comment_likes.filter((like) => {
             if (like.userID !== userID) return like;
