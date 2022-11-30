@@ -22,6 +22,8 @@ export function useFetchData() {
               }
             );
 
+            console.log(response);
+
             if (!response.ok) {
               throw new Error("Server Error, Could not find resources...");
             }
