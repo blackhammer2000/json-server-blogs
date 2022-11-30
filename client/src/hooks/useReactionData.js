@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 
-export function ReactionData(currentData, reaction, blogID) {
+export function ReactionData(currentData = null, reaction, blogID) {
   const [data, setData] = useState(currentData);
   const [changeMonitor, setChangeMonitor] = useState(false);
   const [error, setError] = useState(null);
@@ -11,9 +11,9 @@ export function ReactionData(currentData, reaction, blogID) {
       if (!data) {
         try {
           const response = await fetch(
-            `http://localhost:4000/api/reactions/update/${reaction}`,
+            `http://localhost:4000/api/blog/reactions/read/${reaction}`,
             {
-              method: "PATCH",
+              method: "POST",
               mode: "cors",
               body: JSON.stringify({
                 blogID: blogID,
@@ -27,8 +27,9 @@ export function ReactionData(currentData, reaction, blogID) {
           }
 
           const responseInfo = await response.json();
+
           if (responseInfo) {
-            setData(responseInfo.reactions[reaction]);
+            setData(responseInfo[reaction][reaction]);
             // console.log(responseInfo.reactions[reaction]);
           }
         } catch (error) {

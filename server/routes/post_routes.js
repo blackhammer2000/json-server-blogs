@@ -54,4 +54,40 @@ router.post("/api/create/blog", async (req, res) => {
   }
 });
 
+router.post("/api/blog/reactions/read/likes", async (req, res) => {
+  try {
+    const blogs = await Like.findOne({ blogID: req.body.blogID });
+
+    if (!blogs) throw new Error(blogs);
+
+    res.json({ likes: blogs.likes.length });
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
+router.post("/api/blog/reactions/read/comments", async (req, res) => {
+  try {
+    const blogs = await Comment.findOne({ blogID: req.body.blogID });
+
+    if (!blogs) throw new Error(blogs);
+
+    res.json({ comments: blogs.comments.length });
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
+router.post("/api/blog/reactions/read/shares", async (req, res) => {
+  try {
+    const blogs = await Share.findOne({ blogID: req.body.blogID });
+
+    if (!blogs) throw new Error(blogs);
+
+    res.json({ shares: blogs.shares.length });
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
 module.exports = router;
