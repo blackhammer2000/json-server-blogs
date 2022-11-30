@@ -10,7 +10,14 @@ export function ReactionData(currentData, reaction, blogID) {
     (async function () {
       if (!data) {
         try {
-          const response = await fetch(`http://localhost:8000/blogs/${blogID}`);
+          const response = await fetch(
+            `http://localhost:4000//api/reactions/update/${reaction}`,
+            {
+              method: "PATCH",
+              mode: "cors",
+              body: JSON.stringify({ blogID: blogID, userID: "" }),
+            }
+          );
 
           if (!response.ok) {
             throw new Error("Server Error, Could Not Find Resources");

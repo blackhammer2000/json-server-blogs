@@ -47,7 +47,7 @@ export function useFetchData() {
         setLoading(false);
       }
     }, 5000);
-  }, [blogsChanged]);
+  }, [blogsChanged, reactions]);
 
   return {
     loading,
