@@ -14,16 +14,15 @@ export function useFetchData() {
       if (userInfo) {
         (async function () {
           try {
-            const response = await fetch(
-              "http://localhost:6000/api/read/blogs",
-              {
-                method: "GET",
-                mode: "cors",
-              }
-            );
+            const response = await fetch("/api/read/blogs", {
+              method: "GET",
+              mode: "no-cors",
+            });
+
             if (!response.ok) {
               throw new Error("Server Error, Could not find resources...");
             }
+
             const data = await response.json();
             if (data) {
               setUserData(userInfo);
