@@ -18,7 +18,7 @@ export function useFetchData() {
               "http://localhost:4000/api/read/blogs",
               {
                 method: "GET",
-                mode: "no-cors",
+                mode: "cors",
               }
             );
 
