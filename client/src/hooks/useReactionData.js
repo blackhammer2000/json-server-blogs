@@ -11,11 +11,14 @@ export function ReactionData(currentData, reaction, blogID) {
       if (!data) {
         try {
           const response = await fetch(
-            `http://localhost:4000//api/reactions/update/${reaction}`,
+            `http://localhost:4000/api/reactions/update/${reaction}`,
             {
               method: "PATCH",
               mode: "cors",
-              body: JSON.stringify({ blogID: blogID, userID: "" }),
+              body: JSON.stringify({
+                blogID: blogID,
+                userID: "6384977d799a5126d0716d90",
+              }),
             }
           );
 
