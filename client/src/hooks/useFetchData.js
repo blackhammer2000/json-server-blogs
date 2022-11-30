@@ -29,6 +29,7 @@ export function useFetchData() {
             }
 
             const data = await response.json();
+
             if (data) {
               setUserData(userInfo);
               setLoading(false);
