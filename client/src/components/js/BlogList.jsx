@@ -9,20 +9,21 @@ const BlogList = ({ blogs, deleteBlog, blogToEditID, editBlog, userData }) => {
 
   return (
     <div className="container-fluid relative text-white-50">
-      {blogs.map((blog, index) => {
-        return (
-          <Blog
-            blog={blog}
-            index={index}
-            key={blog.id}
-            blogs={blogs}
-            deleteBlog={deleteBlog}
-            editBlog={editBlog}
-            blogToEditID={blogToEditID}
-            userData={userData}
-          />
-        );
-      })}
+      {blogs &&
+        blogs.map((blog, index) => {
+          return (
+            <Blog
+              blog={blog}
+              index={index}
+              key={blog.id}
+              blogs={blogs}
+              deleteBlog={deleteBlog}
+              editBlog={editBlog}
+              blogToEditID={blogToEditID}
+              userData={userData}
+            />
+          );
+        })}
     </div>
   );
 

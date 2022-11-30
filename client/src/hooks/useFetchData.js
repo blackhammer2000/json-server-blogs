@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export function useFetchData() {
   const [error, setError] = useState(null);
   const [blogs, setBlogs] = useState(null);
+  const [reactions, setReactions] = useState(null);
   const [blogsChanged, setBlogsChanged] = useState(false);
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,7 @@ export function useFetchData() {
               }
             );
 
-            console.log(response);
+            // console.log(response);
 
             if (!response.ok) {
               throw new Error("Server Error, Could not find resources...");
@@ -33,8 +34,8 @@ export function useFetchData() {
             if (data) {
               setUserData(userInfo);
               setLoading(false);
-              setBlogs(data);
-              console.log(data);
+              setBlogs(data.blogs);
+              console.log(data.blogs);
               // setIsBlogs(true);
             }
           } catch (error) {
