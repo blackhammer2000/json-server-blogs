@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditBlog = ({ blog, setSelectedBlog, setError, editBlog }) => {
+  const navigate = useNavigate();
   const { title, description, author } = blog;
 
   const [editTitle, setEditTitle] = useState(title);
@@ -89,6 +91,8 @@ const EditBlog = ({ blog, setSelectedBlog, setError, editBlog }) => {
         throw new Error("Server Error, Could Not Find Resources To Patch...");
       }
       console.log(`Blog ${blog.id} successfully edited...`);
+
+      // navigate(-1);
 
       window.location.pathname.includes("home")
         ? window.location.pathname.replace("home", "")

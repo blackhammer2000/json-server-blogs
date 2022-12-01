@@ -2,15 +2,15 @@
   "blogs": [
     {
       "title": "WrestleMania XXVIII",
-      "description": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs vdbfjka,hf lgdkfj gdfg dsfjghkdjsfg dfhgkjdfg dkfghdkfjsghds fdlskhg dsfg dsfkjsgh dfg skldfg skdfg skdlfllk hello",
+      "description": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs vdbfjka,hf lgdkfj gdfg dsfjghkdjsfg dfhgkjdfg dkfghdkfjsghds fdlskhg dsfg dsfkjsgh dfg skldfg skdfg skdlfllk hello world.\n",
       "author": "Samuel Waweru",
       "id": "bd004b48-b802-4d54-b5e5-274515b5e7ae",
       "date": "9/18/2022",
       "reactions": {
         "likes": [
           {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com"
+            "name": "Smith Wanjala",
+            "email": "smith@gmail.com"
           }
         ],
         "comments": [
@@ -88,6 +88,35 @@
             "comment_ID": "e11e03ae-745c-419d-b391-f1670f3787af",
             "time_posted": "10/1/2022, 10:56:58 PM",
             "body": "cool story, love your sequence in explaining the points...",
+            "comment_reactions": {
+              "comment_likes": [],
+              "comment_replies": []
+            }
+          }
+        ],
+        "shares": []
+      }
+    },
+    {
+      "title": "HUSTLER'S FUND",
+      "description": " React Hook useEffect has missing dependencies: 'blogID', 'data', and 'reaction'. Either include them or remove the dependency array. If 'setData' \nneeds the current value of 'reaction', you can also switch to useReducer instead of useState and read 'reaction' in the reducer \n react-hooks/exhaustive-dependency",
+      "author": "ALISTAIR OVEREEM",
+      "id": "bff71b4d-da65-4e04-90a9-d414fc7b7abf",
+      "date": "12/1/2022",
+      "reactions": {
+        "likes": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com"
+          }
+        ],
+        "comments": [
+          {
+            "name": "SAMUEL WAWERU",
+            "email": "waweruzamuel@gmail.com",
+            "comment_ID": "ba843000-eedf-4f55-ac4e-cc5c17e80561",
+            "time_posted": "12/1/2022, 6:53:52 PM",
+            "body": "hope the  best out of this endevaour our govt has begun...thank you @GoK",
             "comment_reactions": {
               "comment_likes": [],
               "comment_replies": []
