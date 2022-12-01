@@ -63,7 +63,11 @@ const Reaction = ({ blog, reaction, reactionData, userData }) => {
         ></i>
 
         <span className="likes-count count font-weight-bold ml-2">
-          {data ? (data < 1000 ? data : `${data / 1000}K`) : null}
+          {data.length
+            ? data.length < 1000
+              ? data.length
+              : `${data.length / 1000}K`
+            : null}
         </span>
       </button>
     </div>
