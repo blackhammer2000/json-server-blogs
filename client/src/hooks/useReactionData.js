@@ -46,21 +46,11 @@ export async function updateDatabase(
   if (requestMethod === "UPDATE") {
     allReactions[reaction].push(newData);
   } else {
-    const duplicateLikeIndex = allReactions[reaction].find(
-      (dbReaction, index) => {
-        let likeIndex;
-        if (dbReaction.email === newData.email) {
-          likeIndex = index;
-        }
-        return likeIndex;
-      }
+    const newLikes = allReactions[reaction].filter(
+      (dbReaction) => dbReaction.email !== newData.email
     );
-    // allReactions[reaction] = allReactions[reaction].map((entry, index) => {
-    //   let unMatchedEntry;
-    //   if (index !== duplicateLikeIndex) unMatchedEntry = entry;
-    //   return unMatchedEntry;
-    // });
-    allReactions[reaction].splice(duplicateLikeIndex, 1);
+
+    allReactions[reaction] = newLikes;
   }
 
   let requestConfigurations = {
