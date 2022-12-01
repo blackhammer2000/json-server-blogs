@@ -16,10 +16,9 @@ const Blog = ({
   editBlog,
   blogToEditID,
   userData,
-  reactions,
 }) => {
   const { id, author, description, title, date } = blog;
-  const { likes, comments, shares } = reactions;
+  const { likes, comments, shares } = blog.reactions;
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [error, setError] = useState(null);
 

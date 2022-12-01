@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 export function useFetchData() {
   const [error, setError] = useState(null);
   const [blogs, setBlogs] = useState(null);
-  const [reactions, setReactions] = useState(null);
   const [blogsChanged, setBlogsChanged] = useState(false);
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,27 +14,16 @@ export function useFetchData() {
       if (userInfo) {
         (async function () {
           try {
-            const response = await fetch(
-              "http://localhost:4000/api/read/blogs",
-              {
-                method: "GET",
-                mode: "cors",
-              }
-            );
-
-            // console.log(response);
-
+            const response = await fetch("http://localhost:8000/blogs");
             if (!response.ok) {
               throw new Error("Server Error, Could not find resources...");
             }
-
             const data = await response.json();
-
             if (data) {
               setUserData(userInfo);
               setLoading(false);
-              setBlogs(data.blogs);
-              console.log(data.blogs);
+              setBlogs(data);
+              console.log(data);
               // setIsBlogs(true);
             }
           } catch (error) {
@@ -46,8 +34,8 @@ export function useFetchData() {
       } else {
         setLoading(false);
       }
-    }, 5000);
-  }, [blogsChanged, reactions]);
+    }, 3000);
+  }, [blogsChanged]);
 
   return {
     loading,
