@@ -2,7 +2,7 @@ import React from "react";
 
 const CommentListItem = ({ comment }) => {
   return (
-    <div className="container d-flex flex-column border border-dark mt-2 p-2 bg-light font-italic">
+    <div className="container d-flex flex-column border border-dark mt-2 p-2 bg-dark font-italic">
       <div className="container text-black-50">
         <h5>{comment.name}</h5>
       </div>

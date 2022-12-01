@@ -2,7 +2,7 @@
   "blogs": [
     {
       "title": "WrestleMania XXVIII",
-      "description": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs vdbfjka,hf lgdkfj gdfg dsfjghkdjsfg dfhgkjdfg dkfghdkfjsghds fdlskhg dsfg dsfkjsgh dfg skldfg skdfg skdlf",
+      "description": "JSDKHDSLAHH;kd.bhskhfkb,hf,dhsbvmaddjfkhdddddddbgjdfhbvfhs vdbfjka,hf lgdkfj gdfg dsfjghkdjsfg dfhgkjdfg dkfghdkfjsghds fdlskhg dsfg dsfkjsgh dfg skldfg skdfg skdlfllk hello",
       "author": "Samuel Waweru",
       "id": "bd004b48-b802-4d54-b5e5-274515b5e7ae",
       "date": "9/18/2022",
@@ -69,12 +69,7 @@
       "id": "518fa19e-2189-4f1b-82c4-3b66c47c0699",
       "date": "9/26/2022",
       "reactions": {
-        "likes": [
-          {
-            "name": "SAMUEL WAWERU",
-            "email": "waweruzamuel@gmail.com"
-          }
-        ],
+        "likes": [],
         "comments": [
           {
             "name": "SAMUEL WAWERU",
