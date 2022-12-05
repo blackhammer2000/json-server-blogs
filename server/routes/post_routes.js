@@ -61,6 +61,8 @@ router.post("/api/read/blog", async (req, res) => {
     const blog = await Blog.findOne({ _id: req.body.blogID });
 
     if (!blog) throw new Error("No blog with the given id was found...");
+
+    res.status(200).json({ blog });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
