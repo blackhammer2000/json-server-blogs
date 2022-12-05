@@ -56,6 +56,11 @@ router.post("/api/create/blog", async (req, res) => {
 
 router.post("/api/read/blog", async (req, res) => {
   try {
+    if (!req.bofy.blogID) throw new Error("provide a blog ID.");
+
+    const blog = await Blog.findOne({ _id: req.body.blogID });
+
+    if (!blog) throw new Error("No blog with the given id was found...");
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
