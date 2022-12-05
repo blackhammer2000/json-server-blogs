@@ -54,6 +54,13 @@ router.post("/api/create/blog", async (req, res) => {
   }
 });
 
+router.post("/api/read/blog", async (req, res) => {
+  try {
+  } catch (err) {
+    if (err.message) res.status(500).json({ error: err.message });
+  }
+});
+
 router.post("/api/blog/reactions/read/likes", async (req, res) => {
   try {
     const blogs = await Like.findOne({ blogID: req.body.blogID });
