@@ -94,10 +94,11 @@ router.post("/api/blog/reactions/read/comments", async (req, res) => {
 
 router.post("/api/blog/reactions/read/shares", async (req, res) => {
   try {
-    const blogs = await Share.findOne({ blogID: req.body.blogID });
+    const blog = await Share.findOne({ blogID: req.body.blogID });
 
     if (!blog) throw new Error("No blog with the given ID was found.");
-    res.json({ shares: blogs.shares.length });
+
+    res.json({ shares: blog.shares.length });
   } catch (err) {
     res.json({ error: err.message });
   }
