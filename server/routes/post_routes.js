@@ -70,7 +70,7 @@ router.post("/api/read/blog", async (req, res) => {
 
 router.post("/api/blog/reactions/read/likes", async (req, res) => {
   try {
-    const blogs = await Like.findOne({ blogID: req.body.blogID });
+    const blog = await Like.findOne({ blogID: req.body.blogID });
 
     if (!blogs) throw new Error(blogs);
 
