@@ -35,7 +35,7 @@ router.patch("/api/update/blog", async (req, res) => {
         blog[property].toLowerCase().includes("id") ||
         blog[property].toLowerCase().includes("reactions")
       ) {
-        delete newData.property;
+        delete newData[property];
         throw new Error(`Cannot update ${reactions}`);
       }
 
