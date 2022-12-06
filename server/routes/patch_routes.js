@@ -135,7 +135,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
     let { comments } = comment;
 
     if (comments === (null || undefined))
-      throw new Error("error when fetching the blog likes.");
+      throw new Error("error when fetching the blog comments.");
 
     const newComment = {
       userID: user._id.toString(),
