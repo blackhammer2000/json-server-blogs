@@ -197,7 +197,7 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
         if (!comment.comment) throw new Error("Cannot update blank comment.");
         comment.comment = commentUpdate;
 
-        selectedComment = true;
+        selectedComment = !selectedComment;
 
         return comment;
       } else {
