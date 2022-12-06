@@ -20,6 +20,13 @@ router.patch("/api/update/blog", async (req, res) => {
 
     if (!blog) throw new Error(blog);
 
+    for (const prop of newData) {
+      if (prop.includes(/"id"/i) || prop.includes("reactions")) {
+        delete newData.prop;
+        throw new Error("Cannot update reactions");
+      }
+    }
+
     if (
       newData.hasOwnProperty(
         "reactions" || "_id" || "ID" || "_ID" || "id" || "Id" || "iD"
