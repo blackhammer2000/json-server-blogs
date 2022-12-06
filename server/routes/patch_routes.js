@@ -69,7 +69,7 @@ router.patch("/api/reactions/update/likes", async (req, res) => {
 
     if (!blog) throw new Error(blog);
 
-    const like = await Like.findOne({ blogID: blogID });
+    const like = await Like.findOne({ blogID: blog._id });
 
     if (!like) throw new Error(like);
 
