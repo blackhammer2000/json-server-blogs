@@ -53,7 +53,7 @@ router.patch("/api/update/blog", async (req, res) => {
 
     const blogUpdate = await Blog.findOneAndUpdate({ _id: id }, { $set: blog });
 
-    if (!blogUpdate) throw new Error(blogUpdate);
+    if (!blogUpdate) throw new Error("No blog to update.");
 
     res.json({
       message: `blog ...${blogID.slice(-6)} updated successfully`,
