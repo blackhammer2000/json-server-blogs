@@ -72,7 +72,7 @@ router.post("/api/blog/reactions/read/likes", async (req, res) => {
   try {
     const blog = await Like.findOne({ blogID: req.body.blogID });
 
-    if (!blog) throw new Error("No blog withthe given ID was found.");
+    if (!blog) throw new Error("No blog with the given ID was found.");
 
     res.json({ likes: blogs.likes.length });
   } catch (err) {
@@ -82,10 +82,9 @@ router.post("/api/blog/reactions/read/likes", async (req, res) => {
 
 router.post("/api/blog/reactions/read/comments", async (req, res) => {
   try {
-    const blogs = await Comment.findOne({ blogID: req.body.blogID });
+    const blog = await Comment.findOne({ blogID: req.body.blogID });
 
-    if (!blogs) throw new Error(blogs);
-
+    if (!blog) throw new Error("No blog with the given ID was found.");
     res.json({ comments: blogs.comments.length });
   } catch (err) {
     res.json({ error: err.message });
