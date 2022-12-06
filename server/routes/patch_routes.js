@@ -558,8 +558,8 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
       throw new Error(updatedCommentAndRepliesLikes);
 
     res.status(203).json({
-      replyLikes: newLikes,
       message: `${liked ? "unliked" : "liked"}`,
+      replyLikes: newLikes,
     });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
