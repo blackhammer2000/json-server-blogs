@@ -135,7 +135,7 @@ router.patch("/api/reactions/create/comment", async (req, res) => {
 
     const blog = await Blog.findOne({ _id: blogID });
 
-    if (!blog) throw new Error(blog);
+    if (!blog) throw new Error("Blog not found.");
 
     const comment = await Comment.findOne({ blogID: blog._id });
 
