@@ -483,7 +483,7 @@ router.patch("/api/reactions/comment/reply/like", async (req, res) => {
     let { comments } = comment;
 
     if (comments === (null || undefined))
-      throw new Error("error when fetching the blog likes.");
+      throw new Error("error when fetching the blog comments.");
 
     let selectedComment = false;
     let selectedCommentReply = false;
