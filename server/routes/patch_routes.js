@@ -224,9 +224,7 @@ router.patch("/api/reactions/edit/comment", async (req, res) => {
 
     if (!updateComment) throw new Error(updateComment);
 
-    res
-      .status(203)
-      .json({ message: "comment updated", comments: updatedComments });
+    res.status(203).json({ message: "comment updated", updatedComments });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
