@@ -74,7 +74,7 @@ router.post("/api/blog/reactions/read/likes", async (req, res) => {
 
     if (!blog) throw new Error("No blog with the given ID was found.");
 
-    res.json({ likes: blog.likes.length });
+    res.json({ likes: blog.likes });
   } catch (err) {
     res.json({ error: err.message });
   }
@@ -86,7 +86,7 @@ router.post("/api/blog/reactions/read/comments", async (req, res) => {
 
     if (!blog) throw new Error("No blog with the given ID was found.");
 
-    res.json({ comments: blog.comments.length });
+    res.json({ comments: blog.comments });
   } catch (err) {
     res.json({ error: err.message });
   }
@@ -98,7 +98,7 @@ router.post("/api/blog/reactions/read/shares", async (req, res) => {
 
     if (!blog) throw new Error("No blog with the given ID was found.");
 
-    res.json({ shares: blog.shares.length });
+    res.json({ shares: blog.shares });
   } catch (err) {
     res.json({ error: err.message });
   }
