@@ -22,7 +22,9 @@ router.post("/api/register/user", async (req, res) => {
 
     if (!user._id) throw new Error(user);
 
-    res.status(201).json({ message: "user registration successfull" });
+    res
+      .status(201)
+      .json({ userID: user._id, message: "user registration successfull" });
   } catch (err) {
     if (err.message) res.status(500).json({ error: err.message });
   }
