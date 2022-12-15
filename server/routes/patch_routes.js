@@ -45,6 +45,7 @@ router.patch("/api/update/blog", async (req, res) => {
         throw new Error("Invalid prop update");
 
       blog[property] = newData[property];
+
       delete newData[property];
     }
 
