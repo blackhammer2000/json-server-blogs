@@ -32,8 +32,8 @@ router.patch("/api/update/blog", async (req, res) => {
 
     for (const property in newData) {
       if (
-        newData[property].toLowerCase().includes("id") ||
-        newData[property].toLowerCase().includes("reactions")
+        property.toLowerCase().includes("id") ||
+        property.toLowerCase().includes("reactions")
       ) {
         delete newData[property];
         throw new Error(`Cannot update ${property} for the selected blog.`);
