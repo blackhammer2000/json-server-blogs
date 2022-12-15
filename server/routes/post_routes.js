@@ -6,7 +6,7 @@ const Like = require("../schemas/like");
 const Share = require("../schemas/share");
 const Comment = require("../schemas/comment");
 
-const { validateBlogBody } = require("./helpers/validators");
+// const { validateBlogBody } = require("./helpers/validators");
 
 router.post("/api/register/user", async (req, res) => {
   try {
