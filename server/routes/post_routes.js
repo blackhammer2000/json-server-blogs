@@ -86,6 +86,8 @@ router.post("/api/blog/reactions/read/likes", async (req, res) => {
 
 router.post("/api/blog/reactions/read/comments", async (req, res) => {
   try {
+    if (!req.body.blogID) throw new Error("Blog id was invalid.");
+
     const blog = await Comment.findOne({ blogID: req.body.blogID });
 
     if (!blog) throw new Error("No blog with the given ID was found.");
