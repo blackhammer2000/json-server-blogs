@@ -36,7 +36,7 @@ router.patch("/api/update/blog", async (req, res) => {
         newData[property].toLowerCase().includes("reactions")
       ) {
         delete newData[property];
-        throw new Error(`Cannot update ${reactions}`);
+        throw new Error(`Cannot update ${property} for the selected blog.`);
       }
 
       console.log(blog[property]);
