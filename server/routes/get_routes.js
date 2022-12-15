@@ -6,7 +6,7 @@ const Share = require("../schemas/share");
 
 router.get("/api/read/blogs", async (req, res) => {
   try {
-    if (!req.headers.userID) throw new Error("please sign up to proceed.");
+    // if (!req.headers.userID) throw new Error("please sign up to proceed.");
 
     const blogs = await Blog.find();
 
