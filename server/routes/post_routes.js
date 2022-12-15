@@ -98,6 +98,8 @@ router.post("/api/blog/reactions/read/comments", async (req, res) => {
 
 router.post("/api/blog/reactions/read/shares", async (req, res) => {
   try {
+    if (!req.body.blogID) throw new Error("Blog id was invalid.");
+
     const blog = await Share.findOne({ blogID: req.body.blogID });
 
     if (!blog) throw new Error("No blog with the given ID was found.");
