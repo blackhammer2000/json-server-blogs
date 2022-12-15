@@ -36,7 +36,7 @@ router.post("/api/create/blog", async (req, res) => {
 
     const blog = await Blog.create(req.body);
 
-    if (!blog) throw new Error(blog);
+    if (!blog) throw new Error("Unable to create the blog.");
 
     const like = await Like.create({ blogID: blog._id, likes: [] });
 
@@ -44,7 +44,8 @@ router.post("/api/create/blog", async (req, res) => {
 
     const comment = await Comment.create({ blogID: blog._id, comments: [] });
 
-    if (!comment) throw new Error(comment);
+    if (!comment)
+      throw new Error("Unable to create the comment doc for the given blog.");
 
     const share = await Share.create({ blogID: blog._id, shares: [] });
 
