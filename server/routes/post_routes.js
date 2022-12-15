@@ -49,7 +49,8 @@ router.post("/api/create/blog", async (req, res) => {
 
     const share = await Share.create({ blogID: blog._id, shares: [] });
 
-    if (!share) throw new Error(share);
+    if (!share)
+      throw new Error("Unable to create the share doc for the given blog.");
 
     res.json({ message: "blog created", response_status: "success" });
   } catch (err) {
