@@ -10,15 +10,16 @@ const Comment = require("../schemas/comment");
 
 router.post("/api/register/user", async (req, res) => {
   try {
-    if (!req.body.email) throw new Error("User data not provided.");
+    if (!req.body.email || !req.body.name)
+      throw new Error("User data not provided.");
 
-    const { email } = req.body;
+    const { name, email } = req.body;
 
-    const userExists = await User.findOne({ email: email });
+    const userExists = await User.findOne({ email: email.toLowerCase() });
 
     if (userExists) throw new Error("user is already registered.");
 
-    const user = await User.create({ email: email });
+    const user = await User.create({ name, email });
 
     if (!user._id) throw new Error(user);
 
